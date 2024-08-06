@@ -6,7 +6,7 @@ Your job is to create a simple API to retrieve information about a product.
 ## Installation & Setup
 Before you begin developing, create a branch from master and name it `firstName_lastNameInitial`, e.g. `git checkout -b ryan_m` and publish the branch to the remote repo.
 There are also some things to configure before developing:
-- Ensure a minumum of php7.3 and maximum php8.0 is installed
+- Ensure a minumum of php7.4 and maximum php8.0 is installed
 - Run `composer install`
 - Configure your db credentials inside the .env file. Note: `mysql` is our preferred db, if you do not have mysql, sqlite will suffice. Just make sure to update the `.env.example` so we know which database type to use.
 
