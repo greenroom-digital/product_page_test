@@ -21,13 +21,6 @@ class ProductController extends Controller
     public function show(Request $request, $slug)
     {
         $entity = $this->service->show($slug);
-
-        if (!$entity) {
-            return response()->json([
-                'data' => null,
-                'msg' => 'Item not found.'
-            ], Response::HTTP_NOT_FOUND);
-        }
         
         return new ProductResource($entity);
     }
