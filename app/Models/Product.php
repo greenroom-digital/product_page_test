@@ -24,6 +24,11 @@ class Product extends Model
         return $this->hasOne(ProductDiscount::class);
     }
 
+    public function scopeSlug($query, $value)
+    {
+        $query->where('slug', $value);
+    }
+
     public function getDiscountedPriceAttribute()
     {
         $this->load(['discount']);

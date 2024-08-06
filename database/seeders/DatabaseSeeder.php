@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Product;
 use App\Models\ProductDiscount;
 use App\Models\ProductImage;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,10 @@ class DatabaseSeeder extends Seeder
     {
         $now = now();
         
+        // Create a default user
+        User::factory()->create();
+
+        // Insert default Product
         $product = Product::create([
             "name" => "Fall Limited Edition Sneakers",
             "description" => "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
@@ -26,7 +31,7 @@ class DatabaseSeeder extends Seeder
             "active" => 1,
         ]);
 
-
+        // Insert default images
         $imagePaths = [
             "image-product-1.jpg",
             "image-product-2.jpg",
@@ -46,6 +51,7 @@ class DatabaseSeeder extends Seeder
 
         ProductImage::insert($data);
 
+        // Insert default discount
         ProductDiscount::create([
             "product_id" => $product->id,
             "type" => "percent",
