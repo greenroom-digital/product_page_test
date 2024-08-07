@@ -1,24 +1,12 @@
 <template>
     <div class="flex h-screen justify-center items-center">
 
-        <div class="max-w-[1440px] w-[1136px] p-6 bg-white rounded-lg flex">
-            <div class="">
-                <img 
-                    :src="imageUrl(data.currentImage)" 
-                    alt="Sneakers" 
-                    class="rounded-lg mb-4"
-                >
+        <div v-if="data.loading">
+            <div class="text-6xl font-bold grayish-blue">Loading...</div>
+        </div>
+        <div v-if="!data.loading" class="max-w-[1440px] w-[1136px] p-6 bg-white rounded-lg flex">
 
-                <div class="flex mt-4 space-x-2 justify-between">
-                    <img 
-                        v-for="img in data.entity?.images" 
-                        @click="() => setCurrentImage(img)"
-                        :src="imageUrl(img)" 
-                        alt="Thumbnail" 
-                        :class="[{'opacity-50 border-2 primary-border': img == data.currentImage}, 'w-20 h-auto rounded-lg  hover:cursor-pointer']"
-                    >
-                </div>
-            </div>
+            <Spotlight :entity="data.entity" />
 
             <div class="pl-28 pt-10">
                 <h2 class="text-5xl font-bold mb-10 very-dark-blue">{{ data.entity?.name }}</h2>
@@ -54,12 +42,13 @@
 <script setup>
 import { reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import Spotlight from './components/Spotlight.vue';
 
 const router = useRouter()
 
 const data = reactive({
     entity: {},
-    currentImage: '',
+    loading: false
 })
 
 // Display discounted if discount is available. else, the original price
@@ -83,11 +72,9 @@ const imageUrl = (img) => {
     return `${url}/${img}`
 }
 
-const setCurrentImage = (img) => {
-    data.currentImage = img
-}
-
 const auth = () => {
+    data.loading = true
+
     return new Promise((resolve, reject) => {
         axios({
             method: 'GET',
@@ -115,7 +102,7 @@ const init = () =>  {
             }
         }).then((res) => {
             data.entity = res.data.data
-            data.currentImage = data.entity?.images?.[0]
+            data.loading = false
         }).catch(async (error) => {
             if (error.response.status == 404) {
                 router.push({ name: 'NotFound' })
