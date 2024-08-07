@@ -40,10 +40,6 @@ class Handler extends ExceptionHandler
             //
         });
 
-        $this->renderable(function (InvalidProductException $e, $request) {
-            return $e->render($request);
-        });
-
         $this->renderable(function (NotFoundHttpException $e, $request) {
             return response()->json(["msg" => "Entity not found."], Response::HTTP_NOT_FOUND);
         });

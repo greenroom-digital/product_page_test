@@ -9,10 +9,6 @@ class ProductService
 {
     public function show($slug)
     {
-        if ($slug !== 'fall-limited-edition-sneakers') {
-            throw new InvalidProductException;
-        }
-
         $product = Product::with(['discount', 'images'])
             ->slug($slug)
             ->firstOrFail();

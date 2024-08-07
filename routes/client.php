@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('temp-auth', [AuthController::class, 'login'])->name('auth.fake');
 
-Route::middleware('auth:sanctum')->group(function() {
-  Route::get('products/{slug}', [ProductController::class, 'show'])->name('product.show');
+Route::middleware(['auth:sanctum'])->group(function() {
+  
+  // ...some other routes
+
+  Route::get('products/{slug}', [ProductController::class, 'show'])->middleware('check.product.slug')->name('product.show');
 });
