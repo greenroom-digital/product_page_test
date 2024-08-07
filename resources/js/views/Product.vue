@@ -5,13 +5,17 @@
             <div class="text-xl sm:text-6xl font-bold grayish-blue">Loading...</div>
         </div>
 
-        <div v-if="!data.loading" class="max-w-[375px] sm:max-w-[1440px] w-[375px] sm:w-[1136px] p-6 bg-white rounded-lg flex-none sm:flex justify-stretch">
+        <div v-if="!data.loading" class="max-w-[375px] sm:max-w-[1440px] w-[375px] sm:w-[1136px] sm:p-6 bg-white rounded-lg flex-none sm:flex justify-stretch">
 
             <div class="sm:w-1/2 sm:p-8 hidden sm:block">
                 <Spotlight :entity="data.entity" />
             </div>
 
-            <div class="sm:pl-20 sm:pt-20 sm:w-1/2">
+            <div class="sm:w-1/2 p-none sm:p-8 block sm:hidden">
+                <ImageSlider :entity="data.entity" />
+            </div>
+
+            <div class="p-6 sm:pr-0 sm:pb-0 sm:pl-20 sm:pt-20 sm:w-1/2">
                 <p class="sm:hidden mb-3 text-sm primary font-bold uppercase">sneaker company</p>
                 <h2 class="text-3xl sm:text-5xl font-bold mb-4 sm:mb-10 very-dark-blue">{{ data.entity?.name }}</h2>
                 <p class="sm:pr-10 mb-6 text-wrap text-base dark-grayish-blue">{{ data.entity?.description }}</p>
@@ -49,6 +53,7 @@
 import { reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Spotlight from './components/Spotlight.vue';
+import ImageSlider from './components/ImageSlider.vue';
 
 const router = useRouter()
 
@@ -122,3 +127,12 @@ onMounted(() => {
 })
 
 </script>
+
+<style lang="scss">
+    .vue-flux .flux-button {
+        outline: 0px;
+        max-width: 56px !important;
+        max-height: 56px !important;
+        width: 10%;
+    }
+</style>

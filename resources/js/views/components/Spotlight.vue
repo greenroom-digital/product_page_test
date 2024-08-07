@@ -30,7 +30,7 @@
 
 <script setup>
     import { reactive, onMounted } from 'vue'
-    import FsLightbox from "fslightbox-vue/v3";
+    import FsLightbox from "fslightbox-vue/v3"
 
     const props = defineProps({
         entity: Object,
@@ -42,7 +42,6 @@
         toggleLightBox: false
     })
 
-    
     const applyUrlToImages = async() => {
         data.lightBoxImages = await props.entity?.images?.length 
             ? props.entity?.images?.map((img) => imageUrl(img))
