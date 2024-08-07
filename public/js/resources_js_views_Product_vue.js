@@ -88,7 +88,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             return _regeneratorRuntime().wrap(function _callee$(_context) {
               while (1) switch (_context.prev = _context.next) {
                 case 0:
-                  console.log(error);
+                  if (error.response.status == 404) {
+                    router.push({
+                      name: 'NotFound'
+                    });
+                  }
                 case 1:
                 case "end":
                   return _context.stop();
@@ -190,7 +194,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "text-3xl bg-light-grayish-blue font-bold primary px-3 py-1 pb-3 rounded-r-lg hover:bg-gray-200 hover:cursor-pointer"
 }, "+", -1 /* HOISTED */);
 var _hoisted_18 = {
-  "class": "text-base font-bold ml-4 bg-primary text-white px-20 py-4 rounded-lg glow"
+  "class": "text-base font-bold ml-4 bg-primary text-white px-20 py-4 rounded-lg glow cursor-pointer"
 };
 var _hoisted_19 = ["src"];
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Add to cart ");

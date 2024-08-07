@@ -39,7 +39,7 @@
                     <span class="text-md font-bold bg-light-grayish-blue very-dark-blue px-6 py-3">0</span>
                     <button class="text-3xl bg-light-grayish-blue font-bold primary px-3 py-1 pb-3 rounded-r-lg hover:bg-gray-200 hover:cursor-pointer">+</button>
 
-                    <button class="text-base font-bold ml-4 bg-primary text-white px-20 py-4 rounded-lg glow ">
+                    <button class="text-base font-bold ml-4 bg-primary text-white px-20 py-4 rounded-lg glow cursor-pointer">
                         <img :src="imageUrl('icon-cart.svg')" class="svg-filter inline-block h-4 align-baseline mr-2">
                         Add to cart
                     </button>
@@ -117,7 +117,9 @@ const init = () =>  {
             data.entity = res.data.data
             data.currentImage = data.entity?.images?.[0]
         }).catch(async (error) => {
-            console.log(error)
+            if (error.response.status == 404) {
+                router.push({ name: 'NotFound' })
+            }
         })
     })
 }
