@@ -24,7 +24,7 @@ class CheckProductSlug
 
         $slug = strtok($end, '?'); // remove query params
 
-        if ($slug != 'fall-limited-edition-sneakers') {
+        if (in_array('product', $explode) && $slug != 'fall-limited-edition-sneakers') {
             throw new InvalidProductException;
         }
 
