@@ -1,2 +1,60 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import './colors';
 @import './reset';
 @import './font';
+
+
+
+
+
+#app {
+    height: 100%;
+}
+
+.primary {
+    color: $primary;
+
+    &-border {
+        color: $primary;
+    }
+}
+.primary-pale {
+    color: $primary-pale;
+}
+.very-dark-blue {
+    color: $very-dark-blue;
+}
+.dark-grayish-blue {
+    color: $dark-grayish-blue
+}
+.grayish-blue {
+    color: $grayish-blue;
+}
+.bg-primary {
+    background-color: $primary;
+}
+.bg-primary-pale {
+    background-color: $primary-pale;
+}
+.bg-grayish-blue {
+    background-color: $grayish-blue;
+}
+.bg-grayish-blue:hover {
+    background-color: $grayish-blue;
+}
+.bg-light-grayish-blue {
+    background-color: $light-grayish-blue;
+}
+.svg-filter {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(152%) contrast(120%);
+}
+.glow:hover {
+    box-shadow: 0px 16px 30px 0px $primary-glow;
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 1439px) {
+
+}
