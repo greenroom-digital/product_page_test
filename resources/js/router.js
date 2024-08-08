@@ -8,10 +8,15 @@ const router = createRouter({
       redirect: () => ({ name: 'product', params: { slug: 'fall-limited-edition-sneakers' } })
     },
     {
-      path: '/shop/product/:slug',
+      path: '/client/products/:slug',
       name: 'product',
       component: () => import('./views/Product.vue')
-    }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('./views/NotFound.vue')
+    },
   ],
 })
 
