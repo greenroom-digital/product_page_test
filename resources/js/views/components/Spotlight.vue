@@ -4,6 +4,7 @@
             v-if="data.currentImage"
             :toggler="data.toggleLightBox"
             :sources="data.lightBoxImages"
+            type="image"
         />
 
         <div class="">

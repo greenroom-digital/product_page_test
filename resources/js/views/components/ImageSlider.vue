@@ -1,52 +1,30 @@
 <template>
     <div>
-        <VueFlux
-            :options="options"
-            :rscs="rscs"
-            :transitions="transitions">
+        <carousel :items-to-show="1" :autoplay="2000" :wrapAround="true">
+            <slide v-for="img,i in props.entity?.images" :key="i">
+                <img :src="imageUrl(img)" :alt="img">
+            </slide>
 
-            <template #preloader="preloaderProps">
-                <FluxPreloader v-bind="preloaderProps" />
+            <template #addons>
+                <navigation />
             </template>
-
-            <template #controls="controlsProps">
-                <FluxControls v-bind="controlsProps" mouseOver="false"/>
-            </template>
-        </VueFlux>
+        </carousel>
         
     </div>
 </template>
 
 <script setup>
-    import { shallowReactive, ref } from 'vue'
-    import {
-        VueFlux,
-        FluxControls,
-        FluxPreloader,
-        FluxButton,
-        Img,
-        Slide,
-    } from 'vue-flux'
-    import 'vue-flux/style.css'
+    import 'vue3-carousel/dist/carousel.css'
+    import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
     const props = defineProps({
         entity: Object,
     })
 
-    const options = shallowReactive({
-        autoplay: false,
-        aspectRatio: '4:3',
-        bindKeys: true,
-        delay: 2000,
-    })
+    const imageUrl = (img) => {
+        let url = `${process.env.MIX_API_URL}/images`
 
-    const rscs = shallowReactive([
-        new Img(`${process.env.MIX_API_URL}/images/${props.entity?.images?.[0]}`),
-        new Img(`${process.env.MIX_API_URL}/images/${props.entity?.images?.[1]}`),
-        new Img(`${process.env.MIX_API_URL}/images/${props.entity?.images?.[2]}`),
-        new Img(`${process.env.MIX_API_URL}/images/${props.entity?.images?.[3]}`),
-    ])
-
-    const transitions = shallowReactive([Slide]);
+        return (img) ? `${url}/${img}` : ''
+    }
 
 </script>

@@ -146,10 +146,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vue_flux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-flux */ "./node_modules/vue-flux/dist/vue-flux.js");
-/* harmony import */ var vue_flux_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-flux/style.css */ "./node_modules/vue-flux/dist/style.css");
-
+/* harmony import */ var vue3_carousel_dist_carousel_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue3-carousel/dist/carousel.css */ "./node_modules/vue3-carousel/dist/carousel.css");
+/* harmony import */ var vue3_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue3-carousel */ "./node_modules/vue3-carousel/dist/carousel.es.js");
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -158,31 +156,19 @@ __webpack_require__.r(__webpack_exports__);
     entity: Object
   },
   setup: function setup(__props, _ref) {
-    var _props$entity, _props$entity2, _props$entity3, _props$entity4;
     var expose = _ref.expose;
     expose();
     var props = __props;
-    var options = (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)({
-      autoplay: false,
-      aspectRatio: '4:3',
-      bindKeys: true,
-      delay: 2000
-    });
-    var rscs = (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)([new vue_flux__WEBPACK_IMPORTED_MODULE_1__.Img("".concat("http://localhost:8000", "/images/").concat((_props$entity = props.entity) === null || _props$entity === void 0 || (_props$entity = _props$entity.images) === null || _props$entity === void 0 ? void 0 : _props$entity[0])), new vue_flux__WEBPACK_IMPORTED_MODULE_1__.Img("".concat("http://localhost:8000", "/images/").concat((_props$entity2 = props.entity) === null || _props$entity2 === void 0 || (_props$entity2 = _props$entity2.images) === null || _props$entity2 === void 0 ? void 0 : _props$entity2[1])), new vue_flux__WEBPACK_IMPORTED_MODULE_1__.Img("".concat("http://localhost:8000", "/images/").concat((_props$entity3 = props.entity) === null || _props$entity3 === void 0 || (_props$entity3 = _props$entity3.images) === null || _props$entity3 === void 0 ? void 0 : _props$entity3[2])), new vue_flux__WEBPACK_IMPORTED_MODULE_1__.Img("".concat("http://localhost:8000", "/images/").concat((_props$entity4 = props.entity) === null || _props$entity4 === void 0 || (_props$entity4 = _props$entity4.images) === null || _props$entity4 === void 0 ? void 0 : _props$entity4[3]))]);
-    var transitions = (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)([vue_flux__WEBPACK_IMPORTED_MODULE_1__.Slide]);
+    var imageUrl = function imageUrl(img) {
+      var url = "".concat("http://localhost:8000", "/images");
+      return img ? "".concat(url, "/").concat(img) : '';
+    };
     var __returned__ = {
       props: props,
-      options: options,
-      rscs: rscs,
-      transitions: transitions,
-      shallowReactive: vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive,
-      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
-      VueFlux: vue_flux__WEBPACK_IMPORTED_MODULE_1__.VueFlux,
-      FluxControls: vue_flux__WEBPACK_IMPORTED_MODULE_1__.FluxControls,
-      FluxPreloader: vue_flux__WEBPACK_IMPORTED_MODULE_1__.FluxPreloader,
-      FluxButton: vue_flux__WEBPACK_IMPORTED_MODULE_1__.FluxButton,
-      Img: vue_flux__WEBPACK_IMPORTED_MODULE_1__.Img,
-      Slide: vue_flux__WEBPACK_IMPORTED_MODULE_1__.Slide
+      imageUrl: imageUrl,
+      Carousel: vue3_carousel__WEBPACK_IMPORTED_MODULE_1__.Carousel,
+      Slide: vue3_carousel__WEBPACK_IMPORTED_MODULE_1__.Slide,
+      Navigation: vue3_carousel__WEBPACK_IMPORTED_MODULE_1__.Navigation
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -395,24 +381,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = ["src", "alt"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["VueFlux"], {
-    options: $setup.options,
-    rscs: $setup.rscs,
-    transitions: $setup.transitions
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Carousel"], {
+    "items-to-show": 1,
+    autoplay: 2000,
+    wrapAround: true
   }, {
-    preloader: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (preloaderProps) {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FluxPreloader"], (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeProps)((0,vue__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps)(preloaderProps)), null, 16 /* FULL_PROPS */)];
+    addons: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navigation"])];
     }),
-
-    controls: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (controlsProps) {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["FluxControls"], (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)(controlsProps, {
-        mouseOver: "false"
-      }), null, 16 /* FULL_PROPS */)];
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      var _$setup$props$entity;
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$props$entity = $setup.props.entity) === null || _$setup$props$entity === void 0 ? void 0 : _$setup$props$entity.images, function (img, i) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Slide"], {
+          key: i
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+              src: $setup.imageUrl(img),
+              alt: img
+            }, null, 8 /* PROPS */, _hoisted_1)];
+          }),
+          _: 2 /* DYNAMIC */
+        }, 1024 /* DYNAMIC_SLOTS */);
+      }), 128 /* KEYED_FRAGMENT */))];
     }),
 
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["options", "rscs", "transitions"])]);
+  })]);
 }
 
 /***/ }),
@@ -443,7 +440,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [$setup.data.currentImage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["FsLightbox"], {
     key: 0,
     toggler: $setup.data.toggleLightBox,
-    sources: $setup.data.lightBoxImages
+    sources: $setup.data.lightBoxImages,
+    type: "image"
   }, null, 8 /* PROPS */, ["toggler", "sources"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $setup.imageUrl($setup.data.currentImage),
     onClick: _cache[0] || (_cache[0] = function ($event) {
@@ -496,10 +494,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".vue-flux .flux-button {\n  outline: 0
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-flux/dist/style.css":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-flux/dist/style.css ***!
-  \******************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue3-carousel/dist/carousel.css":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue3-carousel/dist/carousel.css ***!
+  \**************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -513,7 +511,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vue-flux .flux-button{padding:0;width:6%;min-width:26px;min-height:26px;max-width:40px;max-height:40px}.flux-button{border:0;cursor:pointer;background-color:transparent}.flux-button:hover>svg line,.flux-button:hover>svg polyline{stroke:#ff0}.flux-button:hover>svg rect,.flux-button:hover>svg polygon{fill:#ff0}.flux-button>svg{width:100%}.flux-button>svg>circle{fill:#000000b3}.flux-button>svg line,.flux-button>svg polyline,.flux-button>svg rect,.flux-button>svg polygon{stroke-linecap:round;stroke-linejoin:round;stroke:#fff;stroke-width:14;fill:none}.flux-button>svg rect,.flux-button>svg polygon{fill:#fff;stroke-width:0}.flux-transition,.vue-flux{position:relative}.vue-flux .flux-transition{position:absolute}.vue-flux>.flux-image{position:absolute;top:0;left:0}.vue-flux .complements{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;z-index:45}.vue-flux .complements .remainder{flex-basis:50%}.vue-flux .flux-caption{flex:none;width:100%;font-size:.8rem;line-height:1.1rem;padding:6px;box-sizing:border-box;color:#fff;text-align:center;background-color:#000000a6;opacity:0}.vue-flux .flux-caption.visible{opacity:1;transition:opacity .3s ease-in}.vue-flux .flux-controls{flex:none;display:flex;justify-content:space-between}.vue-flux .flux-controls.fade-enter,.vue-flux .flux-controls.fade-leave-to{opacity:0}.vue-flux .flux-controls.fade-enter-active,.vue-flux .flux-controls.fade-leave-active{transition:opacity .3s ease-in}.vue-flux .flux-controls .prev{margin-left:4%}.vue-flux .flux-controls .next{margin-right:4%}.vue-flux .flux-index .fade-enter,.vue-flux .flux-index .fade-leave-to{opacity:0}.vue-flux .flux-index .fade-enter-active,.vue-flux .flux-index .fade-leave-active{transition:opacity .3s ease-in}.vue-flux .flux-index li{position:relative;display:inline-block;box-sizing:content-box;margin:0 24px 24px 0;cursor:pointer;transition:all .3s ease}.vue-flux .flux-index li:hover{box-shadow:0 0 3px 2px #fff9}.vue-flux .flux-index li.current{cursor:auto;border:1px solid white;box-shadow:none}.vue-flux .flux-index{flex:none;margin-bottom:2%;font-size:0;text-align:center}.vue-flux .flux-index nav{position:absolute;top:0;left:0;right:0;bottom:0;display:block;margin:0;overflow:hidden;visibility:hidden}.vue-flux .flux-index nav.visible{z-index:101;visibility:visible}.vue-flux .flux-index ul{display:block;height:100%;margin:100% 0 0;padding:24px 0 0 24px;list-style-type:none;text-align:center;overflow-y:auto;background-color:#000;transition:all .5s linear;font-size:0}.vue-flux .flux-pagination{flex:none}.vue-flux .flux-pagination ul{display:flex;flex-wrap:wrap;justify-content:center;margin:0;padding:0;list-style-type:none;text-align:center;position:relative}.vue-flux .flux-pagination li{display:block;margin:0 1% 1.5%;cursor:pointer;width:2%;height:0;min-width:10px;min-height:10px;padding-bottom:2%;position:relative;box-sizing:border-box}.vue-flux .flux-pagination .pagination-item{position:absolute;top:0;left:0;right:0;bottom:0;box-sizing:border-box;border:2px solid #fff;border-radius:50%;background-color:#000000b3;transition:background-color .2s ease-in,border .2s ease-in}.vue-flux .flux-pagination .pagination-item:hover{border-color:#000;background-color:#fff}.vue-flux .flux-pagination .pagination-item.active{border-color:#fff;background-color:#fff}.vue-flux .preloader{position:absolute;top:0;right:0;bottom:0;left:0;z-index:-1}.vue-flux .preloader .spinner{position:absolute;top:50%;left:50%;margin-top:-40px;margin-left:-40px;width:80px;height:80px;z-index:14}.vue-flux .preloader .spinner .pct{position:absolute;right:0;left:0;height:80px;line-height:80px;text-align:center;font-weight:700;z-index:1}.vue-flux .preloader .spinner .border{box-sizing:border-box;width:100%;height:100%;border:14px solid #f3f3f3;border-top-color:#3498db;border-bottom-color:#3498db;border-radius:50%;background-color:#f3f3f3;animation:spin 2s linear infinite}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  /* Color */\n  --vc-clr-primary: #000;\n  --vc-clr-secondary: #090f207f;\n  --vc-clr-white: #ffffff;\n\n  /* Icon */\n  --vc-icn-width: 1.2em;\n\n  /* Navigation */\n  --vc-nav-width: 30px;\n  --vc-nav-height: 30px;\n  --vc-nav-border-radius: 0;\n  --vc-nav-color: var(--vc-clr-primary);\n  --vc-nav-color-hover: var(--vc-clr-secondary);\n  --vc-nav-background: transparent;\n\n  /* Pagination */\n  --vc-pgn-width: 12px;\n  --vc-pgn-height: 4px;\n  --vc-pgn-margin: 4px;\n  --vc-pgn-border-radius: 0;\n  --vc-pgn-background-color: var(--vc-clr-secondary);\n  --vc-pgn-active-color: var(--vc-clr-primary);\n}\n\n.carousel {\n  position: relative;\n  text-align: center;\n  box-sizing: border-box;\n  touch-action: pan-y;\n  overscroll-behavior: none;\n}\n\n.carousel.is-dragging {\n  touch-action: none;\n}\n\n.carousel * {\n  box-sizing: border-box;\n}\n\n.carousel__track {\n  display: flex;\n  padding: 0 !important;\n  position: relative;\n}\n\n.carousel__viewport {\n  overflow: hidden;\n}\n\n.carousel__sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n\n.carousel__icon {\n  width: var(--vc-icn-width);\n  height: var(--vc-icn-width);\n  fill: currentColor;\n}\n\n.carousel__prev,\n.carousel__next {\n  box-sizing: content-box;\n  background: var(--vc-nav-background);\n  border-radius: var(--vc-nav-border-radius);\n  width: var(--vc-nav-width);\n  height: var(--vc-nav-height);\n  text-align: center;\n  font-size: var(--vc-nav-height);\n  padding: 0;\n  color: var(--vc-nav-color);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  border: 0;\n  cursor: pointer;\n  margin: 0 10px;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.carousel__next--disabled,\n.carousel__prev--disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n\n.carousel__prev {\n  left: 0;\n}\n\n.carousel__next {\n  right: 0;\n}\n\n.carousel--rtl .carousel__prev {\n  left: auto;\n  right: 0;\n}\n\n.carousel--rtl .carousel__next {\n  right: auto;\n  left: 0;\n}\n\n@media (hover: hover) {\n  .carousel__prev:hover,\n  .carousel__next:hover {\n    color: var(--vc-nav-color-hover);\n  }\n}\n\n.carousel__pagination {\n  display: flex;\n  justify-content: center;\n  list-style: none;\n  line-height: 0;\n  margin: 10px 0 0;\n  padding: 0;\n}\n\n.carousel__pagination-button {\n  display: block;\n  border: 0;\n  margin: 0;\n  cursor: pointer;\n  padding: var(--vc-pgn-margin);\n  background: transparent;\n}\n\n.carousel__pagination-button::after {\n  display: block;\n  content: '';\n  width: var(--vc-pgn-width);\n  height: var(--vc-pgn-height);\n  border-radius: var(--vc-pgn-border-radius);\n  background-color: var(--vc-pgn-background-color);\n}\n\n.carousel__pagination-button--active::after {\n  background-color: var(--vc-pgn-active-color);\n}\n\n@media(hover: hover) {\n  .carousel__pagination-button:hover::after {\n    background-color: var(--vc-pgn-active-color);\n  }\n}\n\n.carousel__slide {\n  scroll-snap-stop: auto;\n  flex-shrink: 0;\n  margin: 0;\n  position: relative;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  /* Fix iOS scrolling #22 */\n  transform: translateZ(0);\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -626,10 +624,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./node_modules/vue-flux/dist/style.css":
-/*!**********************************************!*\
-  !*** ./node_modules/vue-flux/dist/style.css ***!
-  \**********************************************/
+/***/ "./node_modules/vue3-carousel/dist/carousel.css":
+/*!******************************************************!*\
+  !*** ./node_modules/vue3-carousel/dist/carousel.css ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -639,7 +637,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./style.css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-flux/dist/style.css");
+/* harmony import */ var _css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_carousel_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./carousel.css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue3-carousel/dist/carousel.css");
 
             
 
@@ -648,11 +646,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_style_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_carousel_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_style_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_carousel_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -1163,3111 +1161,824 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-flux/dist/vue-flux.js":
-/*!************************************************!*\
-  !*** ./node_modules/vue-flux/dist/vue-flux.js ***!
-  \************************************************/
+/***/ "./node_modules/vue3-carousel/dist/carousel.es.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vue3-carousel/dist/carousel.es.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Blinds2D: () => (/* binding */ ns),
-/* harmony export */   Blinds3D: () => (/* binding */ fs),
-/* harmony export */   Blocks1: () => (/* binding */ is),
-/* harmony export */   Blocks2: () => (/* binding */ rs),
-/* harmony export */   Book: () => (/* binding */ ps),
-/* harmony export */   Camera: () => (/* binding */ cs),
-/* harmony export */   Concentric: () => (/* binding */ ls),
-/* harmony export */   Cube: () => (/* binding */ us),
-/* harmony export */   Directions: () => (/* binding */ z),
-/* harmony export */   Explode: () => (/* binding */ gs),
-/* harmony export */   Fade: () => (/* binding */ qe),
-/* harmony export */   Fall: () => (/* binding */ hs),
-/* harmony export */   FluxButton: () => (/* binding */ et),
-/* harmony export */   FluxCaption: () => (/* binding */ Ge),
-/* harmony export */   FluxControls: () => (/* binding */ Ke),
-/* harmony export */   FluxCube: () => (/* binding */ pt),
-/* harmony export */   FluxGrid: () => (/* binding */ X),
-/* harmony export */   FluxImage: () => (/* binding */ rt),
-/* harmony export */   FluxIndex: () => (/* binding */ Ue),
-/* harmony export */   FluxPagination: () => (/* binding */ Je),
-/* harmony export */   FluxParallax: () => (/* binding */ He),
-/* harmony export */   FluxPreloader: () => (/* binding */ Ze),
-/* harmony export */   FluxTransition: () => (/* binding */ Kt),
-/* harmony export */   FluxVortex: () => (/* binding */ Dt),
-/* harmony export */   FluxWrapper: () => (/* binding */ ht),
-/* harmony export */   Img: () => (/* binding */ Ye),
-/* harmony export */   Kenburn: () => (/* binding */ Qe),
-/* harmony export */   Player: () => (/* binding */ oe),
-/* harmony export */   PlayerResource: () => (/* binding */ Zt),
-/* harmony export */   PlayerTransition: () => (/* binding */ qt),
-/* harmony export */   Position: () => (/* binding */ K),
-/* harmony export */   ResizeTypes: () => (/* binding */ A),
-/* harmony export */   Resource: () => (/* binding */ Mt),
-/* harmony export */   Round1: () => (/* binding */ ms),
-/* harmony export */   Round2: () => (/* binding */ ys),
-/* harmony export */   Sides: () => (/* binding */ W),
-/* harmony export */   Size: () => (/* binding */ T),
-/* harmony export */   Slide: () => (/* binding */ es),
-/* harmony export */   Statuses: () => (/* binding */ Y),
-/* harmony export */   Swipe: () => (/* binding */ ts),
-/* harmony export */   Turns: () => (/* binding */ G),
-/* harmony export */   VueFlux: () => (/* binding */ Ie),
-/* harmony export */   Warp: () => (/* binding */ as),
-/* harmony export */   Waterfall: () => (/* binding */ ss),
-/* harmony export */   Wave: () => (/* binding */ ds),
-/* harmony export */   Zip: () => (/* binding */ os),
-/* harmony export */   useTransition: () => (/* binding */ L)
+/* harmony export */   Carousel: () => (/* binding */ Carousel),
+/* harmony export */   Icon: () => (/* binding */ Icon),
+/* harmony export */   Navigation: () => (/* binding */ Navigation),
+/* harmony export */   Pagination: () => (/* binding */ Pagination),
+/* harmony export */   Slide: () => (/* binding */ Slide)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-var St = Object.defineProperty;
-var Ct = (r, t, e) => t in r ? St(r, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : r[t] = e;
-var d = (r, t, e) => (Ct(r, typeof t != "symbol" ? t + "" : t, e), e);
+/**
+ * Vue 3 Carousel 0.3.3
+ * (c) 2024
+ * @license MIT
+ */
 
-const Lt = (r, t) => {
-  const e = r.__vccOpts || r;
-  for (const [o, s] of t)
-    e[o] = s;
-  return e;
-}, Rt = {}, Tt = {
-  type: "button",
-  class: "flux-button",
-  style: { outline: "0" }
-}, Ft = {
-  viewBox: "0 0 100 100",
-  xmlns: "http://www.w3.org/2000/svg",
-  version: "1.1"
-}, Et = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
-  cx: "50",
-  cy: "50",
-  r: "50"
-}, null, -1), Ot = { viewBox: "-20 -20 140 140" };
-function Vt(r, t) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", Tt, [
-    ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", Ft, [
-      Et,
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", Ot, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(r.$slots, "default")
-      ]))
-    ]))
-  ]);
-}
-const et = /* @__PURE__ */ Lt(Rt, [["render", Vt]]), ut = ({ width: r, height: t }) => Math.ceil(Math.sqrt(r * r + t * t)), $t = ({
-  width: r,
-  height: t
-}) => r / t, Bt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  aspectRatio: $t,
-  diag: ut
-}, Symbol.toStringTag, { value: "Module" }));
-class K {
-  constructor({
-    top: t = null,
-    left: e = null
-  } = {
-    top: null,
-    left: null
-  }) {
-    d(this, "top", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null));
-    d(this, "left", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null));
-    this.update({ top: t, left: e });
-  }
-  reset() {
-    this.top.value = null, this.left.value = null;
-  }
-  isValid() {
-    return ![this.top.value, this.left.value].includes(null);
-  }
-  update({ top: t, left: e }) {
-    this.top.value = t ?? null, this.left.value = e ?? null;
-  }
-  toValue() {
-    const t = {
-      top: void 0,
-      left: void 0
-    };
-    return this.top.value !== null && (t.top = this.top.value), this.left.value !== null && (t.left = this.left.value), t;
-  }
-  toPx() {
-    if (!this.isValid())
-      throw new RangeError("Invalid position in pixels");
-    return {
-      top: this.top.value.toString() + "px",
-      left: this.left.value.toString() + "px"
-    };
-  }
-}
-class Mt {
-  constructor(t, e, o = A.fill, s = null, n, c, a) {
-    d(this, "src");
-    d(this, "loader", null);
-    d(this, "errorMessage");
-    d(this, "status", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(I.notLoaded));
-    d(this, "realSize", new T());
-    d(this, "displaySize", new T());
-    d(this, "caption", "");
-    d(this, "resizeType");
-    d(this, "backgroundColor", null);
-    d(this, "display");
-    d(this, "transition");
-    d(this, "isLoading", () => this.status.value === I.loading);
-    d(this, "isLoaded", () => this.status.value === I.loaded);
-    d(this, "isError", () => this.status.value === I.error);
-    d(this, "resizeProps", (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => this.calcResizeProps(this.displaySize)));
-    this.src = t, this.caption = e, this.resizeType = o, this.backgroundColor = s, this.display = n, this.transition = c, this.errorMessage = a;
-  }
-  calcResizeProps(t) {
-    if ([t.isValid(), this.realSize.isValid()].includes(!1))
-      return {};
-    const e = new At(this.realSize), { size: o, position: s } = e.resizeTo(t, this.resizeType);
-    return {
-      ...o.toValue(),
-      ...s.toValue()
-    };
-  }
-  getResizeProps(t, e) {
-    const o = {
-      width: 0,
-      height: 0,
-      top: 0,
-      left: 0
-    };
-    return this.displaySize.isValid() || this.displaySize.update(t.toValue()), Object.assign(
-      o,
-      t.equals(this.displaySize) ? this.resizeProps.value : this.calcResizeProps(t)
-    ), e !== void 0 && (o.top -= e.top.value || 0, o.left -= e.left.value || 0), o;
-  }
-}
-class Ye extends Mt {
-  constructor(t, e = "", o = A.fill, s = null) {
-    const n = {
-      component: rt,
-      props: {}
-    }, c = {
-      component: rt,
-      props: {}
-    }, a = `Image ${t} could not be loaded`;
-    super(
-      t,
-      e,
-      o,
-      s,
-      n,
-      c,
-      a
-    );
-  }
-  load() {
-    return this.loader !== null ? this.loader : (this.loader = new Promise((t, e) => {
-      this.status.value = I.loading;
-      const o = new Image();
-      o.onload = () => this.onLoad(o, t), o.onerror = () => this.onError(e), o.src = this.src;
-    }), this.loader);
-  }
-  onLoad(t, e) {
-    this.realSize = new T({
-      width: t.naturalWidth || t.width,
-      height: t.naturalHeight || t.height
-    }), this.status.value = I.loaded, e();
-  }
-  onError(t) {
-    this.status.value = I.error, t(this.errorMessage);
-  }
-}
-var _t = /* @__PURE__ */ ((r) => (r.notLoaded = "notLoaded", r.loading = "loading", r.loaded = "loaded", r.error = "error", r))(_t || {});
-const I = _t;
-var bt = /* @__PURE__ */ ((r) => (r.fill = "fill", r.fit = "fit", r))(bt || {});
-const A = bt, yt = (r) => r >= 1 ? "landscape" : "portrait";
-class At {
-  constructor(t) {
-    d(this, "realSize");
-    d(this, "realAspectRatio");
-    d(this, "realOrientation");
-    if (t.isValid() === !1)
-      throw new RangeError("Invalid real size");
-    this.realSize = t, this.realAspectRatio = this.realSize.getAspectRatio(), this.realOrientation = yt(this.realAspectRatio);
-  }
-  resizeTo(t, e) {
-    if (t.isValid() === !1)
-      throw new RangeError("Invalid size to resize");
-    const o = t.getAspectRatio(), s = yt(o), n = this.getAdaptedSize(
-      t,
-      o,
-      s,
-      e
-    ), c = this.getAdaptedPosition(
-      t,
-      o,
-      n,
-      e
-    );
-    return {
-      size: n,
-      position: c
-    };
-  }
-  getAdaptedSize(t, e, o, s) {
-    return o === "landscape" && this.realOrientation === "portrait" && s === A.fill ? this.getAdaptedSizeByWith(t) : o === "landscape" && this.realOrientation === "landscape" && e >= this.realAspectRatio && s === A.fill ? this.getAdaptedSizeByWith(t) : o === "landscape" && this.realOrientation === "landscape" && e < this.realAspectRatio && s === A.fit ? this.getAdaptedSizeByWith(t) : o === "portrait" && this.realOrientation === "landscape" && s === A.fit ? this.getAdaptedSizeByWith(t) : o === "portrait" && this.realOrientation === "portrait" && e > this.realAspectRatio && s === A.fill ? this.getAdaptedSizeByWith(t) : o === "portrait" && this.realOrientation === "portrait" && e <= this.realAspectRatio && s === A.fit ? this.getAdaptedSizeByWith(t) : this.getAdaptedSizeByHeight(t);
-  }
-  getAdaptedSizeByWith(t) {
-    return new T({
-      width: t.width.value,
-      height: t.width.value / this.realAspectRatio
-    });
-  }
-  getAdaptedSizeByHeight(t) {
-    return new T({
-      width: this.realAspectRatio * t.height.value,
-      height: t.height.value
-    });
-  }
-  getAdaptedPosition(t, e, o, s) {
-    return this.realAspectRatio <= e && s === A.fill ? this.getAdaptedPositionVertically(t, o) : this.realAspectRatio > e && s === A.fit ? this.getAdaptedPositionVertically(t, o) : this.getAdaptedPositionHorizontally(t, o);
-  }
-  getAdaptedPositionVertically(t, e) {
-    return new K({
-      top: (t.height.value - e.height.value) / 2,
-      left: 0
-    });
-  }
-  getAdaptedPositionHorizontally(t, e) {
-    return new K({
-      top: 0,
-      left: (t.width.value - e.width.value) / 2
-    });
-  }
-}
-class Wt {
-  constructor(t, e, o, s, n, c, a, u) {
-    d(this, "rscs", []);
-    d(this, "counter", {
-      success: 0,
-      error: 0,
-      total: 0
-    });
-    d(this, "toPreload");
-    d(this, "preLoading", []);
-    d(this, "lazyLoading", []);
-    d(this, "progress", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0));
-    d(this, "displaySize");
-    d(this, "onPreloadStart");
-    d(this, "onPreloadEnd");
-    d(this, "onLazyLoadStart");
-    d(this, "onLazyLoadEnd");
-    d(this, "isCancelled", !1);
-    d(this, "reject");
-    this.rscs = t, this.toPreload = e > t.length ? t.length : e, this.displaySize = o, this.onPreloadStart = s, this.onPreloadEnd = n, this.onLazyLoadStart = c, this.onLazyLoadEnd = a, this.reject = u, this.preloadStart();
-  }
-  preloadStart() {
-    this.onPreloadStart();
-    const { counter: t } = this, e = this.rscs.slice(
-      t.total,
-      t.total + this.toPreload - t.success
-    );
-    this.preLoading = this.preLoading.concat(e), e.forEach((o) => this.load(o));
-  }
-  preloadEnd() {
-    const { counter: t, toPreload: e } = this;
-    if (t.success < e && t.total < this.rscs.length) {
-      this.preloadStart();
-      return;
-    }
-    const o = this.preLoading.filter(
-      (s) => s.resource.isLoaded()
-    );
-    this.onPreloadEnd(o), this.preLoading.length = 0, t.total < this.rscs.length && this.lazyLoadStart();
-  }
-  lazyLoadStart() {
-    this.onLazyLoadStart(), this.lazyLoading = this.rscs.slice(this.counter.total), this.lazyLoading.forEach((t) => this.load(t));
-  }
-  lazyLoadEnd() {
-    const t = this.lazyLoading.filter(
-      (e) => e.resource.isLoaded()
-    );
-    this.onLazyLoadEnd(t), this.lazyLoading.length = 0;
-  }
-  load(t) {
-    t.resource.load().then(() => {
-      this.loadSuccess(t);
-    }).catch((e) => {
-      this.loadError(e);
-    }).finally(() => {
-      this.counter.total++, !this.isCancelled && (this.preLoading.length !== 0 && this.updateProgress(), this.counter.total === this.toPreload ? this.preloadEnd() : this.counter.total === this.rscs.length && this.lazyLoadEnd());
-    });
-  }
-  loadSuccess(t) {
-    this.counter.success++, !this.isCancelled && t.resource.displaySize.update(this.displaySize.toValue());
-  }
-  loadError(t) {
-    this.counter.error++, !this.isCancelled && console.error(t);
-  }
-  updateProgress() {
-    this.progress.value = Math.ceil(this.counter.success * 100 / this.toPreload) || 0;
-  }
-  hasFinished() {
-    return this.counter.total === this.rscs.length;
-  }
-  cancel() {
-    this.isCancelled = !0, this.reject("Resources loading cancelled", this.rscs);
-  }
-}
-class T {
-  constructor({
-    width: t = null,
-    height: e = null
-  } = { width: null, height: null }) {
-    d(this, "width", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null));
-    d(this, "height", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null));
-    this.update({ width: t, height: e });
-  }
-  reset() {
-    this.width.value = null, this.height.value = null;
-  }
-  isValid() {
-    return ![this.width.value, this.height.value].includes(null);
-  }
-  update({
-    width: t,
-    height: e
-  }) {
-    this.width.value = t ?? null, this.height.value = e ?? null;
-  }
-  getAspectRatio() {
-    if (!this.isValid())
-      throw new RangeError("Could not get aspect ratio due to invalid size");
-    return $t(
-      this.toValue()
-    );
-  }
-  clone() {
-    return new T(this.toValue());
-  }
-  equals(t) {
-    return !(this.width.value !== t.width.value || this.height.value !== t.height.value);
-  }
-  toValue() {
-    const t = {};
-    return this.width.value !== null && (t.width = this.width.value), this.height.value !== null && (t.height = this.height.value), t;
-  }
-  toPx() {
-    if (!this.isValid())
-      throw new RangeError("Invalid size in pixels");
-    return {
-      width: this.width.value.toString() + "px",
-      height: this.height.value.toString() + "px"
-    };
-  }
-}
-function st(r, t, e) {
-  e.base === void 0 && (e.base = {});
-  const o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-    const { size: l, viewSize: i = new T() } = t, { width: p = l.width.value, height: m = l.height.value } = i.toValue(), y = new T({ width: p, height: m });
-    return y.isValid() ? y.toPx() : {};
-  }), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
-    ...(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(o),
-    ...(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(e.color),
-    ...(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(e.rsc),
-    ...(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(t.css),
-    ...(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(e.base)
-  })), n = (l) => {
-    Object.assign(e.base, l);
-  };
-  return {
-    style: s,
-    setCss: n,
-    transform: (l) => {
-      r.value !== null && (r.value.clientHeight, n(l));
+
+const defaultConfigs = {
+    itemsToShow: 1,
+    itemsToScroll: 1,
+    modelValue: 0,
+    transition: 300,
+    autoplay: 0,
+    snapAlign: 'center',
+    wrapAround: false,
+    throttle: 16,
+    pauseAutoplayOnHover: false,
+    mouseDrag: true,
+    touchDrag: true,
+    dir: 'ltr',
+    breakpoints: undefined,
+    i18n: {
+        ariaNextSlide: 'Navigate to next slide',
+        ariaPreviousSlide: 'Navigate to previous slide',
+        ariaNavigateToSlide: 'Navigate to slide {slideNumber}',
+        ariaGallery: 'Gallery',
+        itemXofY: 'Item {currentSlide} of {slidesCount}',
+        iconArrowUp: 'Arrow pointing upwards',
+        iconArrowDown: 'Arrow pointing downwards',
+        iconArrowRight: 'Arrow pointing to the right',
+        iconArrowLeft: 'Arrow pointing to the left',
     },
-    show: () => {
-      n({
-        visibility: "visible"
-      });
-    },
-    hide: () => {
-      n({
-        visibility: "hidden"
-      });
-    }
-  };
-}
-const gt = {
-  x: {
-    top: "90",
-    bottom: "-90"
-  },
-  y: {
-    back: "180",
-    backr: "180",
-    backl: "-180",
-    left: "-90",
-    right: "90"
-  }
-}, vt = {
-  x: {
-    left: "-50",
-    right: "50"
-  },
-  y: {
-    top: "-50",
-    bottom: "50"
-  }
 };
-class Nt {
-  constructor(t, e, o) {
-    d(this, "depth");
-    d(this, "size");
-    d(this, "viewSize");
-    d(this, "translateZ", (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-      const t = this.depth / 2, { width: e, height: o } = this.size.toValue(), { width: s, height: n } = this.viewSize.toValue();
-      return {
-        front: 0,
-        back: this.depth,
-        backr: this.depth,
-        backl: this.depth,
-        left: t,
-        right: (s ?? e) - t,
-        top: t,
-        bottom: (n ?? o) - t
-      };
-    }));
-    this.depth = t, this.size = e, this.viewSize = o;
-  }
-  getRotate(t) {
-    const e = gt.x[t] ?? "0", o = gt.y[t] ?? "0";
-    return `rotateX(${e}deg) rotateY(${o}deg)`;
-  }
-  getTranslate(t) {
-    const e = vt.x[t] ?? "0", o = vt.y[t] ?? "0", s = this.translateZ.value[t].toString();
-    return `translate3d(${e}%, ${o}%, ${s}px)`;
-  }
-  getSideCss(t) {
-    return `${this.getRotate(t)} ${this.getTranslate(t)}`;
-  }
-}
-class Xt {
-  static getProps(t, e, o, s, n) {
-    const { depth: c, size: a, viewSize: u } = t, l = {
-      name: e,
-      component: s ? s.transition.component : rt,
-      color: o,
-      rsc: s,
-      size: a.clone(),
-      viewSize: u.clone(),
-      offset: n,
-      style: {
-        position: "absolute",
-        transform: t.getSideCss(e),
-        backfaceVisibility: "hidden"
-      }
-    };
-    return ["left", "right"].includes(e) && (l.viewSize.width.value = c, l.size.width.value = c), ["top", "bottom"].includes(e) && (l.viewSize.height.value = c, l.size.height.value = c), l;
-  }
-}
-var W = /* @__PURE__ */ ((r) => (r.front = "front", r.back = "back", r.left = "left", r.right = "right", r.top = "top", r.bottom = "bottom", r))(W || {});
-function jt(r, t, e) {
-  return !!(t && t[r] || e && e[r]);
-}
-function Yt(r, t, e, o) {
-  const s = Object.values(W);
-  return r || e ? s : Object.values(W).filter(
-    (n) => jt(n, t, o)
-  );
-}
-class Ht {
-  static getSidesProps(t, e, o, s, n, c, a) {
-    const u = Yt(e, o, s, n), l = {};
-    return u.forEach((i) => {
-      l[i] = Xt.getProps(
-        t,
-        i,
-        o && o[i] ? o[i] : e,
-        n && n[i] ? n[i] : s,
-        a && a[i] ? a[i] : c
-      );
-    }), l;
-  }
-}
-const pt = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxCube",
-  props: {
-    colors: { default: () => ({}) },
-    rscs: { default: () => ({}) },
-    offsets: { default: () => ({}) },
-    depth: { default: 0 },
-    origin: {},
-    color: {},
-    rsc: {},
-    size: {},
-    viewSize: { default: () => new T() },
-    offset: {},
-    css: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(
-      () => e.origin !== void 0 ? e.origin : `center center -${e.depth / 2}px`
-    ), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      base: {
-        transformStyle: "preserve-3d",
-        transformOrigin: s
-      }
-    }), { style: c, setCss: a, transform: u, show: l, hide: i } = st(
-      o,
-      e,
-      n
-    ), p = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(
-      () => new Nt(e.depth, e.size, e.viewSize)
-    ), m = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(
-      () => Ht.getSidesProps(
-        p.value,
-        e.color,
-        e.colors,
-        e.rsc,
-        e.rscs,
-        e.offset,
-        e.offsets
-      )
-    ), y = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate)(() => {
-      Object.assign(y, {
-        [W.front]: void 0,
-        [W.back]: void 0,
-        [W.left]: void 0,
-        [W.right]: void 0,
-        [W.top]: void 0,
-        [W.bottom]: void 0
-      });
-    }), t({
-      setCss: a,
-      transform: u,
-      show: l,
-      hide: i,
-      turn: (v) => u({ transform: p.value.getRotate(v) })
-    }), (v, x) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: o,
-      class: "flux-cube",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(c))
-    }, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(!0), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(m.value, (E) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(E.component), (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-        ref_for: !0,
-        ref: (V) => y[E.name] = V,
-        key: E.name
-      }, E), null, 16))), 128))
-    ], 4));
-  }
-});
-var G = /* @__PURE__ */ ((r) => (r.front = "front", r.back = "back", r.backr = "backr", r.backl = "backl", r.left = "left", r.right = "right", r.top = "top", r.bottom = "bottom", r))(G || {});
-function xt(r, t) {
-  return Math.floor(r / t);
-}
-function kt(r, t) {
-  return r % t;
-}
-class It {
-  static getProps(t, e) {
-    let { width: o, height: s } = e.size.toValue();
-    const n = xt(e.number, t.numCols), c = kt(e.number, t.numCols), a = {
-      color: t.color,
-      colors: t.colors,
-      rsc: t.rsc,
-      rscs: t.rscs,
-      size: t.size,
-      depth: t.depth,
-      offset: new K({
-        top: n * s,
-        left: c * o
-      })
-    };
-    return n + 1 === t.numRows && (s = t.size.height.value - n * s), c + 1 === t.numCols && (o = t.size.width.value - c * o), a.viewSize = new T({
-      width: o,
-      height: s
-    }), a.css = {
-      ...e.css,
-      position: "absolute",
-      ...a.offset.toPx(),
-      zIndex: e.number + 1 < t.numTiles / 2 ? e.number + 1 : t.numTiles - e.number
-    }, a;
-  }
-}
-class Gt {
-  static getTilesProps(t) {
-    const { rows: e, cols: o, size: s, color: n, colors: c, rsc: a, rscs: u, depth: l } = t, i = Math.ceil(e), p = Math.ceil(o), m = {
-      numRows: i,
-      numCols: p,
-      numTiles: i * p,
-      size: s,
-      depth: l,
-      color: n,
-      colors: c,
-      rsc: a,
-      rscs: u
-    }, y = {
-      number: 0,
-      size: new T({
-        width: Math.floor(s.width.value / p),
-        height: Math.floor(s.height.value / i)
-      }),
-      css: t.tileCss
-    }, _ = [];
-    for (let v = 0; v < m.numTiles; v++)
-      y.number = v, _.push(It.getProps(m, y));
-    return _;
-  }
-}
-const X = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxGrid",
-  props: {
-    colors: {},
-    rscs: {},
-    rows: { default: 1 },
-    cols: { default: 1 },
-    depth: { default: 0 },
-    tileCss: {},
-    color: {},
-    rsc: {},
-    size: {},
-    viewSize: {},
-    offset: {},
-    css: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      base: {
-        position: "relative"
-      }
-    }), { style: n, setCss: c, show: a, hide: u } = st(
-      o,
-      e,
-      s
-    ), l = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(
-      () => {
-        var y;
-        return e.rscs !== void 0 ? pt : (y = e.rsc) == null ? void 0 : y.transition.component;
-      }
-    ), i = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => Gt.getTilesProps(e)), p = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate)(() => {
-      p.value = [];
-    }), t({
-      setCss: c,
-      transform: (y) => {
-        p.value.forEach((_, v) => y(_, v));
-      },
-      show: a,
-      hide: u,
-      getRowNumber: xt,
-      getColNumber: kt
-    }), (y, _) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: o,
-      class: "flux-grid",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(n))
-    }, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(!0), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(i.value, (v, x) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(l.value), (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-        ref_for: !0,
-        ref: (E) => p.value.push(E),
-        key: x
-      }, v), null, 16))), 128))
-    ], 4));
-  }
-}), rt = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxImage",
-  props: {
-    color: {},
-    rsc: {},
-    size: {},
-    viewSize: {},
-    offset: {},
-    css: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      base: {
-        overflow: "hidden"
-      },
-      color: (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-        var p, m;
-        const i = {};
-        return e.color !== void 0 && (i.backgroundColor = e.color), ((p = e.rsc) == null ? void 0 : p.backgroundColor) !== null && (i.backgroundColor = (m = e.rsc) == null ? void 0 : m.backgroundColor), i;
-      }),
-      rsc: (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-        const { rsc: i, size: p, offset: m } = e;
-        if (!i)
-          return {};
-        if (i.status.value === I.notLoaded)
-          return i.load(), {};
-        if (!i.isLoaded() || !p.isValid() || !o.value)
-          return {};
-        const { width: y, height: _, top: v, left: x } = i.getResizeProps(p, m);
-        return {
-          backgroundImage: `url(${i.src})`,
-          backgroundSize: `${y}px ${_}px`,
-          backgroundPosition: `${x}px ${v}px`,
-          backgroundRepeat: "no-repeat"
-        };
-      })
-    }), { style: n, setCss: c, transform: a, show: u, hide: l } = st(
-      o,
-      e,
-      s
-    );
-    return t({
-      setCss: c,
-      transform: a,
-      show: u,
-      hide: l
-    }), (i, p) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: o,
-      class: "flux-image",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(n))
-    }, null, 4));
-  }
-}), He = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxParallax",
-  props: {
-    rsc: {},
-    holder: { default: () => window },
-    type: { default: "relative" },
-    offset: { default: "100%" }
-  },
-  setup(r, { expose: t }) {
-    const { aspectRatio: e } = Bt, o = r, s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), { holder: n, rsc: c } = o, a = {
-      base: {
-        position: "relative",
-        background: `url("${c.src}") no-repeat`
-      },
-      defined: (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({}),
-      final: (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
-        ...a.base,
-        ...(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(a.defined)
-      }))
-    }, u = /iPad|iPhone|iPod/.test(navigator.userAgent) || navigator.userAgent === "MacIntel" && navigator.maxTouchPoints > 1, l = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      width: 0,
-      height: 0,
-      aspectRatio: (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => e(l))
-    }), i = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      top: 0,
-      width: 0,
-      height: 0,
-      aspectRatio: (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => e(i))
-    }), p = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      top: 0,
-      left: 0,
-      width: 0,
-      height: 0
-    }), m = {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      bottom: 0,
-      right: 0,
-      clip: "rect(auto auto auto auto)"
-    }, y = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => ({
-      position: "absolute",
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      background: `url("${c.src}") no-repeat center center fixed`,
-      backgroundSize: `${p.width}px ${p.height}px`
-    })), _ = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-      const { offset: k } = o, R = parseFloat(k);
-      return /^[0-9]+px$/.test(k) ? {
-        px: R,
-        pct: R * 100 / p.height
-      } : /^[0-9]+%$/.test(k) ? {
-        px: Math.ceil(i.height * R / 100),
-        pct: R
-      } : {
-        px: 0,
-        pct: 0
-      };
-    }), v = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-      const k = u ? l.height : i.height + _.value.px;
-      return p.height - k;
-    });
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(() => {
-      window.addEventListener("resize", x, {
-        passive: !0
-      }), (o.type !== "fixed" || u) && n.addEventListener("scroll", V, {
-        passive: !0
-      }), c.load().then(() => {
-        x();
-      });
-    }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(() => {
-      window.removeEventListener("resize", x), n.removeEventListener("scroll", V);
-    });
-    const x = () => {
-      l.width = n.scrollWidth || n.innerWidth, l.height = n.scrollHeight || n.innerHeight, i.width = s.value.clientWidth, i.height = s.value.clientHeight, i.top = s.value.getBoundingClientRect().top + window.scrollY, c.displaySize.update(l);
-      const k = c.resizeProps.value;
-      p.width = k.width, p.height = k.height, a.defined.backgroundSize = `${p.width}px ${p.height}px`, a.defined.backgroundPosition = "center 0", V();
-    }, E = (k) => {
-      v.value > 0 && (k = k * _.value.pct / 100 + 50 - _.value.pct / 2), a.defined.backgroundPositionY = k.toFixed(2) + "%";
-    }, V = () => {
-      if (!c.isLoaded() || !u && o.type === "fixed")
-        return;
-      const k = n.scrollY || n.scrollTop || 0;
-      if (n !== window)
-        return J.relative(k);
-      if (k + l.height < i.top || k > i.top + i.height)
-        return;
-      const R = k - i.top + l.height;
-      J[o.type](R);
-    }, J = {
-      visible: (k) => {
-        let R = 0;
-        k < i.height ? R = 0 : k > l.height ? R = 100 : R = (k - i.height) * 100 / (l.height - i.height), E(R);
-      },
-      relative: (k) => {
-        let R;
-        n === window ? R = k * 100 / (l.height + i.height) : R = k * 100 / (l.height - n.clientHeight), E(R);
-      },
-      fixed: (k) => {
-        a.defined.backgroundPositionY = k - l.height + "px";
-      }
-    };
-    return t({
-      resize: x
-    }), (k, R) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: s,
-      class: "flux-parallax",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(a.final.value)
-    }, [
-      o.type === "fixed" && !(0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(u) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-        key: 0,
-        style: m
-      }, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-          class: "image",
-          style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(y.value)
-        }, null, 4)
-      ])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(k.$slots, "default")
-    ], 4));
-  }
-}), Kt = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxTransition",
-  props: {
-    size: {},
-    transition: {},
-    from: {},
-    to: {},
-    displayComponent: {},
-    options: { default: () => ({}) }
-  },
-  emits: ["ready", "start", "end"],
-  setup(r, { expose: t, emit: e }) {
-    const o = r, s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), c = e, a = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      base: {
-        overflow: "hidden",
-        perspective: "none",
-        zIndex: 3
-      }
-    }), u = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-      const { width: m, height: y } = o.size.toPx();
-      return {
-        ...a.base,
-        width: m,
-        height: y
-      };
-    }), l = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1);
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(async () => {
-      await (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(), n.value !== null && (l.value = n.value.totalDuration), c("ready", {
-        transition: o.transition,
-        from: o.from,
-        to: o.to,
-        options: o.options,
-        duration: l.value
-      });
-    });
-    async function i() {
-      c("start", {
-        transition: o.transition,
-        from: o.from,
-        to: o.to,
-        options: o.options,
-        duration: l.value
-      }), await (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(), n.value === null ? console.error("Transition component not available", o.transition) : n.value.onPlay(), setTimeout(() => p(), l.value);
+
+const carouselProps = {
+    // count of items to showed per view
+    itemsToShow: {
+        default: defaultConfigs.itemsToShow,
+        type: Number,
+    },
+    // count of items to be scrolled
+    itemsToScroll: {
+        default: defaultConfigs.itemsToScroll,
+        type: Number,
+    },
+    // control infinite scrolling mode
+    wrapAround: {
+        default: defaultConfigs.wrapAround,
+        type: Boolean,
+    },
+    // control max drag
+    throttle: {
+        default: defaultConfigs.throttle,
+        type: Number,
+    },
+    // control snap position alignment
+    snapAlign: {
+        default: defaultConfigs.snapAlign,
+        validator(value) {
+            // The value must match one of these strings
+            return ['start', 'end', 'center', 'center-even', 'center-odd'].includes(value);
+        },
+    },
+    // sliding transition time in ms
+    transition: {
+        default: defaultConfigs.transition,
+        type: Number,
+    },
+    // an object to store breakpoints
+    breakpoints: {
+        default: defaultConfigs.breakpoints,
+        type: Object,
+    },
+    // time to auto advance slides in ms
+    autoplay: {
+        default: defaultConfigs.autoplay,
+        type: Number,
+    },
+    // pause autoplay when mouse hover over the carousel
+    pauseAutoplayOnHover: {
+        default: defaultConfigs.pauseAutoplayOnHover,
+        type: Boolean,
+    },
+    // slide number number of initial slide
+    modelValue: {
+        default: undefined,
+        type: Number,
+    },
+    // toggle mouse dragging.
+    mouseDrag: {
+        default: defaultConfigs.mouseDrag,
+        type: Boolean,
+    },
+    // toggle mouse dragging.
+    touchDrag: {
+        default: defaultConfigs.touchDrag,
+        type: Boolean,
+    },
+    // control snap position alignment
+    dir: {
+        default: defaultConfigs.dir,
+        validator(value) {
+            // The value must match one of these strings
+            return ['rtl', 'ltr'].includes(value);
+        },
+    },
+    // aria-labels and additional text labels
+    i18n: {
+        default: defaultConfigs.i18n,
+        type: Object,
+    },
+    // an object to pass all settings
+    settings: {
+        default() {
+            return {};
+        },
+        type: Object,
+    },
+};
+
+function getMaxSlideIndex({ config, slidesCount }) {
+    const { snapAlign, wrapAround, itemsToShow = 1 } = config;
+    if (wrapAround) {
+        return Math.max(slidesCount - 1, 0);
     }
-    function p() {
-      c("end", {
-        transition: o.transition,
-        from: o.from,
-        to: o.to,
-        options: o.options,
-        duration: l.value
-      });
+    let output;
+    switch (snapAlign) {
+        case 'start':
+            output = slidesCount - itemsToShow;
+            break;
+        case 'end':
+            output = slidesCount - 1;
+            break;
+        case 'center':
+        case 'center-odd':
+            output = slidesCount - Math.ceil((itemsToShow - 0.5) / 2);
+            break;
+        case 'center-even':
+            output = slidesCount - Math.ceil(itemsToShow / 2);
+            break;
+        default:
+            output = 0;
+            break;
     }
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(() => {
-      o.displayComponent && o.displayComponent.show();
-    }), t({ start: i }), (m, y) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: s,
-      class: "flux-transition",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(u.value)
-    }, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(m.transition), {
-        ref_key: "$transition",
-        ref: n,
-        size: m.size,
-        from: m.from,
-        to: m.to,
-        "display-component": m.displayComponent,
-        options: m.options,
-        "mask-style": a.base
-      }, null, 8, ["size", "from", "to", "display-component", "options", "mask-style"]))
-    ], 4));
-  }
-});
-class Ut {
-  static getProps(t, e, o) {
-    const s = (t.numCircles - e) * t.radius * 2, n = t.radius * e, c = new K({
-      top: t.topGap + n,
-      left: t.leftGap + n
-    });
-    return {
-      offset: c,
-      css: {
-        ...o,
-        ...c.toPx(),
-        position: "absolute",
-        width: s + "px",
-        height: s + "px",
-        backgroundRepeat: "repeat",
-        borderRadius: "50%",
-        zIndex: e
-      }
-    };
-  }
+    return Math.max(output, 0);
 }
-class Jt {
-  static getCirclesProps(t) {
-    const { width: e, height: o } = t.size.toValue(), s = Math.round(t.circles), n = ut({ width: e, height: o }), c = Math.ceil(n / 2 / s), a = Math.ceil(o / 2 - c * s), u = Math.ceil(e / 2 - c * s), l = {
-      numCircles: s,
-      diagonal: n,
-      radius: c,
-      topGap: a,
-      leftGap: u
-    }, i = [];
-    for (let p = 0; p < s; p++)
-      i.push(
-        Ut.getProps(l, p, t.tileCss)
-      );
-    return i;
-  }
-}
-const Dt = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxVortex",
-  props: {
-    rsc: {},
-    circles: { default: 1 },
-    tileCss: {},
-    color: {},
-    size: {},
-    viewSize: {},
-    offset: {},
-    css: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      base: {
-        position: "relative",
-        overflow: "hidden"
-      }
-    }), { style: n, setCss: c, show: a, hide: u } = st(
-      o,
-      e,
-      s
-    ), l = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => Jt.getCirclesProps(e)), i = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate)(() => {
-      i.value = [];
-    }), t({
-      setCss: c,
-      transform: (m) => {
-        i.value.forEach((y, _) => m(y, _));
-      },
-      show: a,
-      hide: u
-    }), (m, y) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: o,
-      class: "flux-vortex",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(n))
-    }, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(!0), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(l.value, (_, v) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(m.rsc.transition.component), {
-        ref_for: !0,
-        ref: (x) => i.value.push(x),
-        key: v,
-        size: m.size,
-        rsc: m.rsc,
-        offset: _.offset,
-        css: _.css
-      }, null, 8, ["size", "rsc", "offset", "css"]))), 128))
-    ], 4));
-  }
-}), ht = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxWrapper",
-  props: {
-    color: {},
-    rsc: {},
-    size: {},
-    viewSize: {},
-    offset: {},
-    css: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      base: {
-        overflow: "hidden"
-      }
-    }), { style: n, setCss: c, transform: a, show: u, hide: l } = st(
-      o,
-      e,
-      s
-    );
-    return t({
-      setCss: c,
-      transform: a,
-      show: u,
-      hide: l
-    }), (i, p) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: o,
-      class: "flux-wrapper",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(n))
-    }, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(i.$slots, "default")
-    ], 4));
-  }
-});
-var z = /* @__PURE__ */ ((r) => (r.prev = "prev", r.next = "next", r))(z || {}), Y = /* @__PURE__ */ ((r) => (r.stopped = "stopped", r.playing = "playing", r))(Y || {});
-class Zt {
-  constructor() {
-    d(this, "current", null);
-    d(this, "from", null);
-    d(this, "to", null);
-  }
-  reset() {
-    this.current = null, this.from = null, this.to = null;
-  }
-  init(t) {
-    this.current = t.getFirst();
-  }
-  currentSameAs(t) {
-    return this.current.index === t.index;
-  }
-  prepareTo(t) {
-    this.from = this.current, this.to = t;
-  }
-}
-class qt {
-  constructor() {
-    d(this, "current", null);
-    d(this, "last", null);
-  }
-  reset() {
-    this.current = null, this.last = null;
-  }
-  init(t) {
-    this.last = t.getLast();
-  }
-  setCurrentFinished() {
-    this.last = this.current, this.current = null;
-  }
-}
-class Qt {
-  static withOptions(t) {
-    return t.map((e) => {
-      let o = e, s = {};
-      return "resource" in e && (o = e.resource, "options" in e && (s = e.options)), { resource: o, options: s };
-    });
-  }
-}
-class te {
-  constructor(t) {
-    d(this, "list", (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)([]));
-    d(this, "loader", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null));
-    d(this, "emit");
-    this.emit = t;
-  }
-  getPrev(t) {
-    return this.getByIndex(
-      t > 0 ? t - 1 : this.list.length - 1
-    );
-  }
-  getNext(t) {
-    return this.getByIndex(
-      t === this.list.length - 1 ? 0 : t + 1
-    );
-  }
-  getFirst() {
-    return this.getByIndex(0);
-  }
-  getLast() {
-    return this.getByOrder(z.prev, 0);
-  }
-  getByIndex(t) {
-    if (this.list[t] === void 0)
-      throw new ReferenceError(`Resource index ${t} not found`);
-    return {
-      index: t,
-      rsc: this.list[t].resource,
-      options: JSON.parse(JSON.stringify(this.list[t].options))
-    };
-  }
-  getByOrder(t, e) {
-    return {
-      prev: () => this.getPrev(e),
-      next: () => this.getNext(e)
-    }[t]();
-  }
-  find(t, e) {
-    if (typeof t == "number")
-      return this.getByIndex(t);
-    if (e === void 0)
-      throw new ReferenceError("Missing currentIndex parameter");
-    return this.getByOrder(t, e);
-  }
-  update(t, e, o) {
-    var c, a;
-    ((c = this.loader.value) == null ? void 0 : c.hasFinished()) === !1 && ((a = this.loader.value) == null || a.cancel()), this.list.splice(0);
-    const s = Qt.withOptions(t);
-    return new Promise((u, l) => {
-      this.loader.value = new Wt(
-        s,
-        e,
-        o,
-        () => this.preloadStart(),
-        (i) => this.preloadEnd(i, u),
-        () => this.lazyLoadStart(),
-        (i) => this.lazyLoadEnd(i),
-        l
-      );
-    });
-  }
-  preloadStart() {
-    this.emit("resourcesPreloadStart");
-  }
-  preloadEnd(t, e) {
-    this.list.push(...t), this.emit("resourcesPreloadEnd"), e();
-  }
-  lazyLoadStart() {
-    this.emit("resourcesLazyloadStart");
-  }
-  lazyLoadEnd(t) {
-    this.list.push(...t), this.emit("resourcesLazyloadEnd");
-  }
-}
-class ee {
-  static withOptions(t) {
-    return t.map((e) => {
-      let o = e, s = {};
-      return "component" in e && (o = e.component, "options" in e && (s = e.options)), { component: o, options: s };
-    });
-  }
-}
-class se {
-  constructor() {
-    d(this, "list", (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)([]));
-  }
-  getPrev(t) {
-    return this.getByIndex(
-      t > 0 ? t - 1 : this.list.length - 1
-    );
-  }
-  getNext(t) {
-    return this.getByIndex(
-      t === this.list.length - 1 ? 0 : t + 1
-    );
-  }
-  getFirst() {
-    return this.getByIndex(0);
-  }
-  getLast() {
-    return this.getByOrder(z.prev, 0);
-  }
-  getByIndex(t) {
-    return {
-      index: t,
-      component: this.list[t].component,
-      options: JSON.parse(JSON.stringify(this.list[t].options))
-    };
-  }
-  getByOrder(t, e) {
-    return {
-      prev: () => this.getPrev(e),
-      next: () => this.getNext(e)
-    }[t]();
-  }
-  update(t) {
-    this.list.splice(0);
-    const e = ee.withOptions(t);
-    this.list.push(...e);
-  }
-}
-class oe {
-  constructor(t, e, o) {
-    d(this, "resource");
-    d(this, "transition");
-    d(this, "status", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(Y.stopped));
-    d(this, "config");
-    d(this, "timers");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    d(this, "emit");
-    d(this, "resources");
-    d(this, "transitions");
-    d(this, "$displayComponent", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null));
-    this.config = t, this.timers = e, this.emit = o, this.resources = new te(o), this.transitions = new se(), this.resource = (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)(new Zt()), this.transition = (0,vue__WEBPACK_IMPORTED_MODULE_0__.shallowReactive)(new qt());
-  }
-  setup(t) {
-    this.$displayComponent = t;
-  }
-  play(t = z.next, e) {
-    var a, u;
-    const { config: o, timers: s, resource: n } = this;
-    if (this.status.value = Y.playing, this.transition.current !== null)
-      return;
-    const c = (u = this.resources) == null ? void 0 : u.find(t, (a = n.current) == null ? void 0 : a.index);
-    s.set(
-      "transition",
-      e || (c == null ? void 0 : c.options.delay) || o.delay,
-      () => {
-        this.show(t);
-      }
-    ), this.emit("play", t, e);
-  }
-  async stop(t = !1) {
-    const { timers: e } = this;
-    this.status.value = Y.stopped, e.clear("transition"), this.transition.current !== null && t === !0 && await this.end(t), this.emit("stop");
-  }
-  isReadyToShow() {
-    if (this.resource.current === null)
-      throw new ReferenceError("Current resource not set");
-    if (this.resources === null)
-      throw new ReferenceError("Resources list not set");
-    if (this.resources.list.length === 0)
-      throw new RangeError("Resources list empty");
-    if (this.transition.last === null)
-      throw new ReferenceError("Last transition not set");
-    if (this.transitions === null)
-      throw new ReferenceError("Transitions list not set");
-    if (this.transitions.list.length === 0)
-      throw new RangeError("Transitions list empty");
-    if (this.$displayComponent.value === null)
-      throw new ReferenceError("Display component not set");
-    return !0;
-  }
-  async show(t = z.next, e = z.next) {
-    if (!this.isReadyToShow())
-      return;
-    const { resource: o, resources: s, config: n, transitions: c } = this;
-    if (this.transition.current !== null) {
-      n.allowToSkipTransition && (await this.end(!0), this.show(t, e));
-      return;
+
+function getMinSlideIndex({ config, slidesCount }) {
+    const { wrapAround, snapAlign, itemsToShow = 1 } = config;
+    let output = 0;
+    if (wrapAround || itemsToShow > slidesCount) {
+        return output;
     }
-    const a = s.find(
-      t,
-      o.current.index
-    );
-    if (o.currentSameAs(a))
-      return;
-    o.prepareTo(a), this.timers.clear("transition");
-    const u = typeof e == "number" ? c.getByIndex(e) : c.getByOrder(
-      e,
-      this.transition.last.index
-    );
-    u.options.direction === void 0 && (typeof t != "number" ? u.options.direction = t : u.options.direction = this.resource.from.index < this.resource.to.index ? z.next : z.prev), this.transition.current = u, this.emit("show", this.resource, this.transition);
-  }
-  start() {
-    this.resource.current = this.resource.to, this.emit("transitionStart", this.resource, this.transition);
-  }
-  async end(t = !1) {
-    const { config: e, resource: o, resources: s, timers: n, transition: c } = this;
-    if (!(o.current === null || s === null)) {
-      if (c.setCurrentFinished(), await (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(), t === !0 ? this.emit("transitionCancel", this.resource, this.transition) : this.emit("transitionEnd", this.resource, this.transition), this.shouldStopPlaying(
-        e.infinite,
-        o.current,
-        s.list.length - 1
-      )) {
-        this.stop();
-        return;
-      }
-      this.shouldPlayNext() && n.set(
-        "transition",
-        o.current.options.delay || e.delay,
-        () => {
-          this.show();
+    switch (snapAlign) {
+        case 'start':
+            output = 0;
+            break;
+        case 'end':
+            output = itemsToShow - 1;
+            break;
+        case 'center':
+        case 'center-odd':
+            output = Math.floor((itemsToShow - 1) / 2);
+            break;
+        case 'center-even':
+            output = Math.floor((itemsToShow - 2) / 2);
+            break;
+        default:
+            output = 0;
+            break;
+    }
+    return output;
+}
+
+function getNumberInRange({ val, max, min }) {
+    if (max < min) {
+        return val;
+    }
+    return Math.min(Math.max(val, min), max);
+}
+
+function getSlidesToScroll({ config, currentSlide, slidesCount }) {
+    const { snapAlign, wrapAround, itemsToShow = 1 } = config;
+    let output = currentSlide;
+    switch (snapAlign) {
+        case 'center':
+        case 'center-odd':
+            output -= (itemsToShow - 1) / 2;
+            break;
+        case 'center-even':
+            output -= (itemsToShow - 2) / 2;
+            break;
+        case 'end':
+            output -= itemsToShow - 1;
+            break;
+    }
+    if (wrapAround) {
+        return output;
+    }
+    return getNumberInRange({
+        val: output,
+        max: slidesCount - itemsToShow,
+        min: 0,
+    });
+}
+
+function getSlidesVNodes(vNode) {
+    if (!vNode)
+        return [];
+    return vNode.reduce((acc, node) => {
+        var _a;
+        if (node.type === vue__WEBPACK_IMPORTED_MODULE_0__.Fragment) {
+            return [...acc, ...getSlidesVNodes(node.children)];
         }
-      );
-    }
-  }
-  shouldStopPlaying(t, e, o) {
-    return t === !1 && e.index >= o && this.status.value === Y.playing || e.options.stop === !0;
-  }
-  shouldPlayNext() {
-    return this.status.value === Y.playing;
-  }
+        if (((_a = node.type) === null || _a === void 0 ? void 0 : _a.name) === 'CarouselSlide') {
+            return [...acc, node];
+        }
+        return acc;
+    }, []);
 }
-class dt {
-  constructor(t, e = null, o = null) {
-    d(this, "node");
-    d(this, "config");
-    d(this, "emit", null);
-    d(this, "size", new T());
-    d(this, "inFullScreen", () => !!document.fullscreenElement);
-    this.node = t, this.config = e, this.emit = o;
-  }
-  static async getSize(t) {
-    const e = new dt(t);
-    return await e.updateSize(), e.size;
-  }
-  addResizeListener() {
-    window.addEventListener("resize", () => this.updateSize(), {
-      passive: !0
-    });
-  }
-  removeResizeListener() {
-    window.removeEventListener("resize", this.updateSize);
-  }
-  getAspectRatio() {
-    if (this.config !== null) {
-      const [t, e] = this.config.aspectRatio.split(":");
-      return [parseFloat(t), parseFloat(e)];
+
+function mapNumberToRange({ val, max, min = 0 }) {
+    if (val > max) {
+        return mapNumberToRange({ val: val - (max + 1), max, min });
     }
-    return [16, 9];
-  }
-  async updateSize() {
-    if (this.size.reset(), await (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(), this.node.value === null)
-      return;
-    const t = getComputedStyle(this.node.value), e = parseFloat(t.width);
-    let o = parseFloat(t.height);
-    if (["0px", "auto", null].includes(t.height)) {
-      const [s, n] = this.getAspectRatio();
-      o = e / s * n;
+    if (val < min) {
+        return mapNumberToRange({ val: val + (max + 1), max, min });
     }
-    this.size.update({
-      width: e,
-      height: o
-    });
-  }
-  toggleFullScreen() {
-    this.inFullScreen() ? this.exitFullScreen() : this.enterFullScreen();
-  }
-  async enterFullScreen() {
-    var t, e;
-    ((t = this.node) == null ? void 0 : t.value) === null || !((e = this.config) != null && e.allowFullscreen) || (await this.node.value.requestFullscreen(), this.emit !== null && this.emit("fullscreenEnter"));
-  }
-  async exitFullScreen() {
-    await document.exitFullscreen(), this.emit !== null && this.emit("fullscreenExit");
-  }
+    return val;
 }
-class ne {
-  constructor(t, e) {
-    d(this, "config");
-    d(this, "player");
-    this.config = t, this.player = e;
-  }
-  setup() {
-    this.removeKeyListener(), this.config.bindKeys && this.addKeyListener();
-  }
-  addKeyListener() {
-    window.addEventListener("keydown", (t) => this.keydown(t), {
-      passive: !0
-    });
-  }
-  removeKeyListener() {
-    window.removeEventListener("keydown", () => this.keydown);
-  }
-  keydown(t) {
-    if (["ArrowLeft", "Left"].includes(t.key)) {
-      this.player.show(z.prev);
-      return;
+
+/**
+ * return a throttle version of the function
+ * Throttling
+ *
+ */
+// eslint-disable-next-line no-unused-vars
+function throttle(fn, limit) {
+    let inThrottle;
+    if (!limit) {
+        return fn;
     }
-    if (["ArrowRight", "Right"].includes(t.key)) {
-      this.player.show(z.next);
-      return;
-    }
-  }
-}
-class ie {
-  constructor() {
-    d(this, "isOver", (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(!1));
-  }
-  setup(t, e) {
-    e.clear("mouseOver"), t.autohideTime === 0 && (this.isOver.value = !0);
-  }
-  toggle(t, e, o) {
-    t.autohideTime !== 0 && (this.isOver.value = o, this[o ? "over" : "out"](t, e));
-  }
-  out(t, e) {
-    e.clear("mouseOver");
-  }
-  over(t, e) {
-    e.set(
-      "mouseOver",
-      t.autohideTime,
-      () => this.isOver.value = !1
-    );
-  }
-}
-class re {
-  constructor() {
-    d(this, "timers", {});
-  }
-  set(t, e, o) {
-    this.clear(t), this.timers[t] = setTimeout(o, e);
-  }
-  clear(t) {
-    (t !== void 0 ? [t] : Object.keys(this.timers)).forEach((o) => {
-      clearTimeout(this.timers[o]), delete this.timers[o];
-    });
-  }
-}
-class le {
-  constructor() {
-    d(this, "startX", 0);
-    d(this, "startY", 0);
-    d(this, "startTime", 0);
-    d(this, "endTime", 0);
-    d(this, "prevTouchTime", 0);
-    // Max distance in pixels from start until end
-    d(this, "tapThreshold", 5);
-    // Max time in ms from first to second tap
-    d(this, "doubleTapThreshold", 200);
-    // Distance in percentage to trigger slide
-    d(this, "slideTrigger", 0.3);
-    d(this, "tap", (t, e) => Math.abs(t) < this.tapThreshold && Math.abs(e) < this.tapThreshold);
-    d(this, "doubleTap", () => this.endTime - this.prevTouchTime < this.doubleTapThreshold);
-    d(this, "slideLeft", (t, e) => e.size.isValid() && t < 0 && t < -(e.size.width.value * this.slideTrigger));
-    d(this, "slideRight", (t, e) => e.size.isValid() && t > 0 && t > e.size.width.value * this.slideTrigger);
-    d(this, "slideUp", (t, e) => e.size.isValid() && t < 0 && t < -(e.size.height.value * this.slideTrigger));
-    d(this, "slideDown", (t, e) => e.size.isValid() && t > 0 && t > e.size.height.value * this.slideTrigger);
-  }
-  start(t, e) {
-    e.enableGestures && (this.startTime = Date.now(), this.startX = t.touches[0].clientX, this.startY = t.touches[0].clientY);
-  }
-  end(t, e, o, s, n, c) {
-    this.prevTouchTime = this.endTime, this.endTime = Date.now();
-    const a = t.changedTouches[0].clientX - this.startX, u = t.changedTouches[0].clientY - this.startY;
-    if (this.tap(a, u)) {
-      c.toggle(e, n, !0);
-      return;
-    }
-    e.enableGestures && (this.slideRight(a, s) ? o.show(z.prev) : this.slideLeft(a, s) && o.show(z.next));
-  }
-}
-const ae = {
-  key: 2,
-  class: "complements"
-}, ce = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", { class: "remainder upper" }, null, -1), ue = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", { class: "remainder lower" }, null, -1), Ie = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "VueFlux",
-  props: {
-    options: { default: () => ({}) },
-    rscs: {},
-    transitions: {}
-  },
-  emits: ["created", "mounted", "unmounted", "play", "stop", "show", "optionsUpdated", "transitionsUpdated", "resourcesPreloadStart", "resourcesPreloadEnd", "resourcesLazyloadStart", "resourcesLazyloadEnd", "fullscreenEnter", "fullscreenExit", "transitionStart", "transitionCancel", "transitionEnd"],
-  setup(r, { expose: t, emit: e }) {
-    const o = r, s = e, n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), c = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), a = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), u = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      allowFullscreen: !1,
-      allowToSkipTransition: !0,
-      aspectRatio: "16:9",
-      autohideTime: 2500,
-      autoplay: !1,
-      bindKeys: !1,
-      delay: 5e3,
-      enableGestures: !1,
-      infinite: !0,
-      lazyLoad: !0,
-      lazyLoadAfter: 5
-    }), l = new re(), i = new oe(u, l, s), p = i.resources, m = i.transitions, y = new dt(n, u, s), _ = new ne(u, i), v = new ie(), x = new le(), E = () => {
-      Object.assign(u, o.options), v.setup(u, l), _.setup();
+    return function (...args) {
+        const self = this;
+        if (!inThrottle) {
+            fn.apply(self, args);
+            inThrottle = true;
+            setTimeout(() => (inThrottle = false), limit);
+        }
     };
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(o.options, () => {
-      E(), s("optionsUpdated");
-    });
-    async function V(j) {
-      const P = i.status.value === Y.playing;
-      P && await i.stop(!0), await {
-        rscs: async () => await J(),
-        transitions: () => k()
-      }[j](), P && i.play();
-    }
-    async function J() {
-      i.resource.reset();
-      const j = u.lazyLoad ? u.lazyLoadAfter : o.rscs.length;
-      try {
-        await p.update((0,vue__WEBPACK_IMPORTED_MODULE_0__.toRaw)(o.rscs), j, y.size);
-      } catch (P) {
-        console.error(P);
-      }
-      p.list.length && i.resource.init(p);
-    }
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(
-      () => o.rscs,
-      async () => {
-        await V("rscs");
-      },
-      { deep: !1 }
-    );
-    function k() {
-      i.transition.reset(), m.update((0,vue__WEBPACK_IMPORTED_MODULE_0__.toRaw)(o.transitions)), i.transition.init(m);
-    }
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(
-      o.transitions,
-      async () => {
-        await V("transitions"), s("transitionsUpdated");
-      },
-      { deep: !1 }
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(async () => {
-      E(), await y.updateSize(), y.addResizeListener(), i.setup(a), k(), await J(), u.autoplay === !0 && i.play(), s("mounted");
-    }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(() => {
-      l.clear(), y.removeResizeListener(), _.removeKeyListener(), s("unmounted");
-    });
-    const R = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => y.size.isValid() ? y.inFullScreen() ? {
-      width: "100% !important",
-      height: "100% !important"
-    } : y.size.toPx() : {});
-    return t({
-      show: i.show.bind(i),
-      play: i.play.bind(i),
-      stop: i.stop.bind(i),
-      getPlayer: () => i,
-      size: y.size
-    }), s("created"), (j, P) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      ref_key: "$el",
-      ref: n,
-      class: "vue-flux",
-      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)(R.value),
-      onMousemove: P[3] || (P[3] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(v).toggle(u, (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(l), !0)),
-      onMouseleave: P[4] || (P[4] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(v).toggle(u, (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(l), !1)),
-      onDblclick: P[5] || (P[5] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y).toggleFullScreen()),
-      onTouchstart: P[6] || (P[6] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(x).start(M, u)),
-      onTouchend: P[7] || (P[7] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(x).end(M, u, (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i), (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y), (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(l), (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(v)))
-    }, [
-      /* eslint-disable vue/html-indent */
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).transition.current !== null && (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y).size.isValid() && (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.from !== null && (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.to !== null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(Kt), {
-        key: 0,
-        ref_key: "$transition",
-        ref: c,
-        transition: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).transition.current.component,
-        size: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y).size,
-        from: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.from.rsc,
-        to: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.to.rsc,
-        "display-component": a.value,
-        options: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).transition.current.options,
-        onReady: P[0] || (P[0] = (M) => {
-          var ft;
-          return (ft = c.value) == null ? void 0 : ft.start();
-        }),
-        onStart: P[1] || (P[1] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).start()),
-        onEnd: P[2] || (P[2] = (M) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).end())
-      }, null, 8, ["transition", "size", "from", "to", "display-component", "options"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.current !== null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.current.rsc.display.component), (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-        key: 1,
-        ref_key: "$displayComponent",
-        ref: a,
-        size: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y).size,
-        rsc: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.current.rsc
-      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).resource.current.rsc.display.props), null, 16, ["size", "rsc"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y).size.isValid() ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", ae, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(j.$slots, "preloader", {
-          loader: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(p).loader
-        }),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(j.$slots, "caption", { player: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i) }),
-        ce,
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(j.$slots, "controls", {
-          mouseOver: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(v).isOver,
-          player: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i)
-        }),
-        ue,
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(j.$slots, "index", {
-          mouseOver: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(v).isOver,
-          displaySize: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(y).size,
-          player: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i)
-        }),
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(j.$slots, "pagination", { player: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i) })
-      ])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0)
-    ], 36));
-  }
-}), Ge = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxCaption",
-  props: {
-    player: {}
-  },
-  setup(r) {
-    const t = r, { resource: e, transition: o } = t.player, s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => e.current === null || e.current.rsc.caption === null ? "&nbsp;" : e.current.rsc.caption), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-      const c = ["flux-caption"];
-      return o.current === null && e.current !== null && e.current.rsc.caption.length > 0 && c.push("visible"), c;
-    });
-    return (c, a) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(n.value)
-    }, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(c.$slots, "default", { caption: s.value }, () => [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(s.value), 1)
-      ])
-    ], 2));
-  }
-}), pe = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("polyline", { points: "64,18 22,50 64,82" }, null, -1), he = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Prev",
-  setup(r) {
-    return (t, e) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(et), { class: "prev top left" }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        pe
-      ]),
-      _: 1
-    }));
-  }
-}), de = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("polygon", { points: "32,12 82,50 32,88" }, null, -1), fe = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Play",
-  setup(r) {
-    return (t, e) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(et), { class: "play" }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        de
-      ]),
-      _: 1
-    }));
-  }
-}), me = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "32",
-  y1: "22",
-  x2: "32",
-  y2: "78"
-}, null, -1), ye = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "68",
-  y1: "22",
-  x2: "68",
-  y2: "78"
-}, null, -1), ge = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Stop",
-  setup(r) {
-    return (t, e) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(et), { class: "pause" }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        me,
-        ye
-      ]),
-      _: 1
-    }));
-  }
-}), ve = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("polyline", { points: "36,18 78,50 36,82" }, null, -1), we = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Next",
-  setup(r) {
-    return (t, e) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(et), { class: "next top right" }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        ve
-      ]),
-      _: 1
-    }));
-  }
-}), ze = {
-  key: 0,
-  class: "flux-controls"
-}, Ke = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxControls",
-  props: {
-    mouseOver: { default: void 0 },
-    player: {}
-  },
-  setup(r) {
-    const t = r, e = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => !(t.player.resource.current === null || t.mouseOver !== void 0 && (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(t.mouseOver) === !1));
-    return (o, s) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, { name: "fade" }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        e.value ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", ze, [
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(he, {
-            onClick: s[0] || (s[0] = (n) => o.player.show((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(z).prev))
-          }),
-          (o.player.status.value || o.player.status) === (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(Y).stopped ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(fe, {
-            key: 0,
-            onClick: s[1] || (s[1] = (n) => o.player.play((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(z).next, 1))
-          })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0),
-          (o.player.status.value || o.player.status) === (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(Y).playing ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(ge, {
-            key: 1,
-            onClick: s[2] || (s[2] = (n) => o.player.stop())
-          })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0),
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(we, {
-            onClick: s[3] || (s[3] = (n) => o.player.show((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(z).next))
-          })
-        ])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0)
-      ]),
-      _: 1
-    }));
-  }
-}), $e = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "17.5",
-  y: "17.5",
-  width: "12px",
-  height: "12px"
-}, null, -1), _e = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "17.5",
-  y: "43",
-  width: "12px",
-  height: "12px"
-}, null, -1), be = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "17.5",
-  y: "68.5",
-  width: "12px",
-  height: "12px"
-}, null, -1), xe = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "43",
-  y: "17.5",
-  width: "12px",
-  height: "12px"
-}, null, -1), ke = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "43",
-  y: "43",
-  width: "12px",
-  height: "12px"
-}, null, -1), De = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "43",
-  y: "68.5",
-  width: "12px",
-  height: "12px"
-}, null, -1), Se = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "68.5",
-  y: "17.5",
-  width: "12px",
-  height: "12px"
-}, null, -1), Ce = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "68.5",
-  y: "43",
-  width: "12px",
-  height: "12px"
-}, null, -1), Pe = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "68.5",
-  y: "68.5",
-  width: "12px",
-  height: "12px"
-}, null, -1), Le = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Button",
-  props: {
-    mouseOver: { default: void 0 }
-  },
-  setup(r) {
-    const t = r, e = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(
-      () => [!0, void 0].includes((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(t.mouseOver))
-    );
-    return (o, s) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, { name: "fade" }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        e.value ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(et), {
-          key: 0,
-          class: "toggle bottom left"
-        }, {
-          default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-            $e,
-            _e,
-            be,
-            xe,
-            ke,
-            De,
-            Se,
-            Ce,
-            Pe
-          ]),
-          _: 1
-        })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0)
-      ]),
-      _: 1
-    }));
-  }
-}), Re = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Thumb",
-  props: {
-    rsc: {},
-    size: {}
-  },
-  setup(r) {
-    return (t, e) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", null, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(t.rsc.transition.component), {
-        rsc: t.rsc,
-        size: t.size.value,
-        title: t.rsc.caption
-      }, null, 8, ["rsc", "size", "title"]))
-    ]));
-  }
+}
+
+/**
+ * return a debounced version of the function
+ * @param fn
+ * @param delay
+ */
+// eslint-disable-next-line no-unused-vars
+function debounce(fn, delay) {
+    let timerId;
+    return function (...args) {
+        if (timerId) {
+            clearTimeout(timerId);
+        }
+        timerId = setTimeout(() => {
+            fn(...args);
+            timerId = null;
+        }, delay);
+    };
+}
+
+function i18nFormatter(string = '', values = {}) {
+    return Object.entries(values).reduce((acc, [key, value]) => acc.replace(`{${key}}`, String(value)), string);
+}
+
+var ARIAComponent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'ARIA',
+    setup() {
+        const config = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('config', (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign({}, defaultConfigs)));
+        const currentSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('currentSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0));
+        const slidesCount = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('slidesCount', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0));
+        return () => (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('div', {
+            class: ['carousel__liveregion', 'carousel__sr-only'],
+            'aria-live': 'polite',
+            'aria-atomic': 'true',
+        }, i18nFormatter(config.i18n['itemXofY'], {
+            currentSlide: currentSlide.value + 1,
+            slidesCount: slidesCount.value,
+        }));
+    },
 });
-function Te(r, t) {
-  const e = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-    let { width: s, height: n } = r.toValue();
-    return s = s / 4.2, n = s * 90 / 160, s > 160 && (s = 160, n = 90), new T({
-      width: s,
-      height: n
-    });
-  });
-  function o(s) {
-    const { current: n } = t.resource;
-    return n === null || n.index !== s ? "" : "current";
-  }
-  return { size: e, getClass: o };
-}
-const Fe = 500, Ee = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "List",
-  props: {
-    displaySize: {},
-    player: {},
-    mouseOver: { default: void 0 }
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(!1), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
-      const l = [];
-      return s.value && l.push("visible"), l;
-    });
-    async function c() {
-      o.value !== null && (e.player.stop(), s.value = !0, await (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(), o.value.clientHeight, o.value.style.marginTop = "0");
-    }
-    function a(l) {
-      var i;
-      o.value !== null && ((i = e.player.resource.current) == null ? void 0 : i.index) !== l && (e.mouseOver !== void 0 && (o.value.clientHeight, o.value.style.marginTop = "100%"), setTimeout(() => {
-        s.value = !1, l !== null && e.player.show(l);
-      }, Fe));
-    }
-    const u = Te(e.displaySize, e.player);
-    return t({ show: c }), (l, i) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", {
-      class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(n.value),
-      onClick: i[0] || (i[0] = (p) => a(null))
-    }, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
-        ref_key: "$list",
-        ref: o
-      }, [
-        ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(!0), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(l.player.resources.list, (p, m) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(Re, {
-          key: m,
-          rsc: p.resource,
-          size: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(u).size,
-          class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(u).getClass(m)),
-          onClick: (y) => a(m)
-        }, null, 8, ["rsc", "size", "class", "onClick"]))), 128))
-      ], 512)
-    ], 2));
-  }
-}), Oe = {
-  key: 0,
-  class: "flux-index"
-}, Ue = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxIndex",
-  props: {
-    mouseOver: { default: void 0 },
-    displaySize: {},
-    player: {}
-  },
-  setup(r) {
-    const t = r, e = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(
-      () => t.player.resources.list.length > 0
-    );
-    return (s, n) => o.value ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", Oe, [
-      s.mouseOver ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(Le, {
-        key: 0,
-        "mouse-over": s.mouseOver,
-        onClick: n[0] || (n[0] = (c) => {
-          var a;
-          return (a = e.value) == null ? void 0 : a.show();
-        })
-      }, null, 8, ["mouse-over"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(Ee, {
-        ref_key: "$fluxIndexList",
-        ref: e,
-        "display-size": s.displaySize,
-        player: s.player,
-        "mouse-over": s.mouseOver
-      }, null, 8, ["display-size", "player", "mouse-over"])
-    ])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0);
-  }
-}), Ve = {
-  key: 0,
-  class: "flux-pagination"
-}, Be = ["title", "onClick"], Je = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxPagination",
-  props: {
-    player: {}
-  },
-  setup(r) {
-    const t = r, {
-      player: { resources: e, resource: o, transition: s }
-    } = t, n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => e.list.length > 0), c = (u) => u.resource.caption, a = (u, l) => {
-      var m;
-      const i = [l];
-      let p = ((m = o.current) == null ? void 0 : m.index) === u;
-      return s.current !== null && (p = !1), p === !0 && i.push("active"), i;
-    };
-    return (u, l) => n.value ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", Ve, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [
-        ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(!0), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(u.player.resources.list, (i, p) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", { key: p }, [
-          (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(u.$slots, "default", {
-            index: p,
-            rsc: i,
-            title: c(i),
-            cssClass: a(p, "custom-pagination-item")
-          }, () => [
-            (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-              title: c(i),
-              class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(a(p, "pagination-item")),
-              onClick: (m) => u.player.show(p)
-            }, null, 10, Be)
-          ])
-        ]))), 128))
-      ])
-    ])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0);
-  }
-}), Me = { class: "preloader" }, Ae = {
-  key: 0,
-  class: "spinner"
-}, We = { class: "pct" }, Ne = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", { class: "border" }, null, -1), Ze = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "FluxPreloader",
-  props: {
-    loader: {}
-  },
-  setup(r) {
-    return (t, e) => {
-      var o, s, n;
-      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", Me, [
-        (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(t.$slots, "default", {
-          loader: t.loader,
-          preloading: (o = t.loader.value) == null ? void 0 : o.preLoading.length,
-          lazyloading: (s = t.loader.value) == null ? void 0 : s.lazyLoading.length,
-          pct: (n = t.loader.value) == null ? void 0 : n.progress
-        }, () => {
-          var c, a;
-          return [
-            (c = t.loader.value) != null && c.preLoading.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", Ae, [
-              (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", We, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((a = t.loader.value) == null ? void 0 : a.progress) + "%", 1),
-              Ne
-            ])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0)
-          ];
-        })
-      ]);
-    };
-  }
-});
-function L(r, t) {
-  Object.assign(r, { direction: z.next }, t);
-}
-const qe = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Fade",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1200,
-      easing: "ease-in"
-    });
-    L(s, e.options);
-    const n = {
-      zIndex: 1
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform({
-          transition: `opacity ${s.totalDuration}ms ${s.easing}`,
-          opacity: 0
-        });
-      },
-      totalDuration: s.totalDuration
-    }), (a, u) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(a.from.transition.component), {
-      ref_key: "$from",
-      ref: o,
-      rsc: a.from,
-      size: a.size,
-      css: n
-    }, null, 8, ["rsc", "size"]));
-  }
-}), Qe = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Kenburn",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1500,
-      easing: "linear"
-    });
-    L(s, e.options);
-    const n = [
-      {
-        scale: "1.7",
-        translateX: "-35%",
-        translateY: "-35%",
-        originX: "top",
-        originY: "left"
-      },
-      {
-        scale: "1.7",
-        translateX: "35%",
-        translateY: "-35%",
-        originX: "top",
-        originY: "right"
-      },
-      {
-        scale: "1.7",
-        translateX: "-35%",
-        translateY: "35%",
-        originX: "bottom",
-        originY: "left"
-      },
-      {
-        scale: "1.7",
-        translateX: "35%",
-        translateY: "35%",
-        originX: "bottom",
-        originY: "right"
-      }
-    ], c = Math.floor(Math.random() * 4), a = n[c], u = {
-      transformOrigin: a.originX + " " + a.originY
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform({
-          transition: `all ${s.totalDuration}ms ${s.easing}`,
-          transform: `scale(${a.scale}) translate(${a.translateX}, ${a.translateY})`,
-          opacity: 0
-        });
-      },
-      totalDuration: s.totalDuration
-    }), (i, p) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(i.from.transition.component), {
-      ref_key: "$from",
-      ref: o,
-      rsc: i.from,
-      size: i.size,
-      css: u
-    }, null, 8, ["rsc", "size"]));
-  }
-}), ts = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Swipe",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1400,
-      easing: "ease-in-out"
-    });
-    L(n, e.options);
-    const c = {
-      position: "absolute",
-      top: 0,
-      display: "flex",
-      flexWrap: "nowrap"
-    }, a = {
-      flex: "0 0 auto"
-    };
-    return {
-      [z.prev]: () => {
-        Object.assign(c, {
-          right: 0,
-          justifyContent: "flex-end"
-        });
-      },
-      [z.next]: () => {
-        Object.assign(c, {
-          left: 0,
-          justifyContent: "flex-start"
-        });
-      }
-    }[n.direction](), t({
-      onPlay: () => {
-        o.value.transform({
-          transition: `width ${n.totalDuration}ms ${n.easing}`,
-          width: 0
-        });
-      },
-      totalDuration: n.totalDuration
-    }), (i, p) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(ht), {
-      ref_key: "$wrapper",
-      ref: o,
-      size: i.size,
-      css: c
-    }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(i.from.transition.component), {
-          ref_key: "$from",
-          ref: s,
-          rsc: i.from,
-          size: i.size,
-          css: a
-        }, null, 8, ["rsc", "size"]))
-      ]),
-      _: 1
-    }, 8, ["size"]));
-  }
-}), es = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Slide",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), c = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1400,
-      easing: "ease-in-out"
-    });
-    L(c, e.options);
-    const a = `transform ${c.totalDuration}ms ${c.easing}`, u = {
-      size: new T({
-        width: e.size.width.value * 2,
-        height: e.size.height.value
-      }),
-      css: {
-        display: "flex",
-        flexWrap: "nowrap"
-      }
-    };
-    let l, i;
-    ({
-      [z.prev]: () => {
-        l = e.to, i = e.from, u.css.transform = "translateX(-50%)";
-      },
-      [z.next]: () => {
-        l = e.from, i = e.to;
-      }
-    })[c.direction]();
-    const m = {
-      [z.prev]: () => {
-        o.value.transform({
-          transition: a,
-          transform: "translateX(0)"
-        });
-      },
-      [z.next]: () => {
-        o.value.transform({
-          transition: a,
-          transform: "translateX(-50%)"
-        });
-      }
-    };
-    return t({
-      onPlay: () => {
-        m[c.direction]();
-      },
-      totalDuration: c.totalDuration
-    }), (_, v) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(ht), (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-      ref_key: "$wrapper",
-      ref: o
-    }, u), {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(l).transition.component), {
-          ref_key: "$left",
-          ref: s,
-          rsc: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(l),
-          size: _.size
-        }, null, 8, ["rsc", "size"])),
-        ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i).transition.component), {
-          ref_key: "$right",
-          ref: n,
-          rsc: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(i),
-          size: _.size
-        }, null, 8, ["rsc", "size"]))
-      ]),
-      _: 1
-    }, 16));
-  }
-}), ss = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Waterfall",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 1,
-      cols: 10,
-      tileDuration: 600,
-      tileDelay: 90,
-      easing: "cubic-bezier(0.55, 0.055, 0.675, 0.19)"
-    });
-    L(s, e.options);
-    const n = s.tileDelay * s.cols + s.tileDuration, c = {
-      [z.prev]: (u) => (s.cols - u - 1) * s.tileDelay,
-      [z.next]: (u) => u * s.tileDelay
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform((u, l) => {
-          const i = `all ${s.tileDuration}ms ${s.easing} ${c[s.direction](l)}ms`;
-          u.transform({
-            transition: i,
-            opacity: "0.1",
-            transform: "translateY(100%)"
-          });
-        });
-      },
-      totalDuration: n
-    }), (u, l) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: u.size,
-      rsc: u.from
-    }, null, 8, ["rows", "cols", "size", "rsc"]));
-  }
-}), os = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Zip",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 1,
-      cols: 10,
-      tileDuration: 600,
-      tileDelay: 80,
-      easing: "ease-in"
-    });
-    L(s, e.options);
-    const n = s.tileDelay * s.cols + s.tileDuration, c = {
-      [z.prev]: (u) => (s.cols - u - 1) * s.tileDelay,
-      [z.next]: (u) => u * s.tileDelay
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform((u, l) => {
-          const i = `all ${s.tileDuration}ms ${s.easing} ${c[s.direction](l)}ms`;
-          u.transform({
-            transition: i,
-            opacity: "0.1",
-            transform: `translateY(${l % 2 ? "-" : ""}100%)`
-          });
-        });
-      },
-      totalDuration: n
-    }), (u, l) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: u.size,
-      rsc: u.from
-    }, null, 8, ["rows", "cols", "size", "rsc"]));
-  }
-}), ns = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Blinds2D",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 1,
-      cols: 10,
-      tileDuration: 800,
-      tileDelay: 100,
-      easing: "linear"
-    });
-    L(s, e.options);
-    const n = {
-      [W.front]: e.from
-    }, c = s.tileDelay * s.cols + s.tileDuration, a = {
-      prev: (l) => (s.cols - l - 1) * s.tileDelay,
-      next: (l) => l * s.tileDelay
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform((l, i) => {
-          const p = `all ${s.tileDuration}ms ${s.easing} ${a[s.direction](i)}ms`;
-          l.transform({
-            transition: p,
-            opacity: "0.1",
-            transform: "scaleX(0)"
-          });
-        });
-      },
-      totalDuration: c
-    }), (l, i) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: l.size,
-      rscs: n
-    }, null, 8, ["rows", "cols", "size"]));
-  }
-}), is = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Blocks1",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    var u;
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 8,
-      cols: 8,
-      tileDuration: 300,
-      tileDelay: 1e3,
-      easing: "linear"
-    });
-    if (L(s, e.options), !((u = e.options) != null && u.rows)) {
-      const l = e.size.width.value / s.cols;
-      s.rows = Math.floor(e.size.height.value / l);
-    }
-    const n = s.tileDelay + s.tileDuration, c = () => Math.floor(Math.random() * s.tileDelay);
-    return t({
-      onPlay: () => {
-        o.value.transform((l) => {
-          const i = `all ${s.tileDuration}ms ${s.easing} ${c()}ms`;
-          l.transform({
-            transition: i,
-            opacity: "0",
-            transform: "scale(0.3, 0.3)"
-          });
-        });
-      },
-      totalDuration: n
-    }), (l, i) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: l.size,
-      rsc: l.from
-    }, null, 8, ["rows", "cols", "size", "rsc"]));
-  }
-}), rs = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Blocks2",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    var _;
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 8,
-      cols: 8,
-      tileDuration: 800,
-      tileDelay: 80,
-      easing: "ease"
-    });
-    L(n, e.options);
-    const c = n.tileDelay * (n.rows + n.cols) + n.tileDuration;
-    if (!((_ = e.options) != null && _.rows)) {
-      const v = e.size.width.value / n.cols;
-      n.rows = Math.floor(e.size.height.value / v);
-    }
-    const a = {
-      rsc: null,
-      css: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: 1
-      }
-    }, u = JSON.parse(JSON.stringify(a));
-    u.css.zIndex = 2;
-    let l = {};
-    ({
-      prev: () => {
-        u.rsc = e.to, a.rsc = e.from, l = {
-          opacity: "0",
-          transform: "scale(0.3)"
-        };
-      },
-      next: () => {
-        u.rsc = e.from;
-      }
-    })[n.direction]();
-    const p = (v) => {
-      const x = o.value.getRowNumber(v, n.cols);
-      let V = o.value.getColNumber(v, n.cols) + x;
-      return n.direction === z.prev && (V = n.rows + n.cols - V - 1), V * n.tileDelay;
-    }, m = {
-      prev: () => {
-        o.value.transform((v, x) => {
-          v.transform({
-            transition: `all ${n.tileDuration}ms ${n.easing} ${p(x)}ms`,
-            opacity: "1",
-            transform: "scale(1)"
-          });
-        });
-      },
-      next: () => {
-        o.value.transform((v, x) => {
-          v.transform({
-            transition: `all ${n.tileDuration}ms ${n.easing} ${p(x)}ms`,
-            opacity: "0",
-            transform: "scale(0.3)"
-          });
-        });
-      }
-    };
-    return t({
-      onPlay: () => {
-        m[n.direction]();
-      },
-      totalDuration: c
-    }), (v, x) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-        ref_key: "$grid",
-        ref: o,
-        rows: n.rows,
-        cols: n.cols,
-        size: v.size,
-        "tile-css": (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(l)
-      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(u)), null, 16, ["rows", "cols", "size", "tile-css"]),
-      a.rsc !== null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(a.rsc.transition.component), (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)({
-        key: 0,
-        ref_key: "$background",
-        ref: s,
-        size: v.size
-      }, a), null, 16, ["size"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("", !0)
-    ]));
-  }
-}), ls = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Concentric",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      circles: 7,
-      tileDuration: 800,
-      tileDelay: 150,
-      easing: "linear"
-    });
-    L(s, e.options);
-    const n = s.tileDelay * s.circles + s.tileDuration, c = (l) => l * s.tileDelay, a = {
-      [z.prev]: "-90",
-      [z.next]: "90"
-    }[s.direction];
-    return t({
-      onPlay: () => {
-        o.value.transform((l, i) => {
-          const p = `all ${s.tileDuration}ms ${s.easing} ${c(i)}ms`;
-          l.transform({
-            transition: p,
-            opacity: "0",
-            transform: `rotateZ(${a}deg)`
-          });
-        });
-      },
-      totalDuration: n
-    }), (l, i) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(Dt), {
-      ref_key: "$vortex",
-      ref: o,
-      size: l.size,
-      circles: s.circles,
-      rsc: l.from
-    }, null, 8, ["size", "circles", "rsc"]));
-  }
-}), as = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Warp",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      circles: 7,
-      tileDuration: 800,
-      tileDelay: 150,
-      easing: "linear"
-    });
-    L(s, e.options);
-    const n = s.tileDelay * s.circles + s.tileDuration, c = {
-      [z.prev]: (l) => (s.circles - l - 1) * s.tileDelay,
-      [z.next]: (l) => l * s.tileDelay
-    }, a = (l) => l % 2 === 0 ? "-90" : "90";
-    return t({
-      onPlay: () => {
-        o.value.transform((l, i) => {
-          const p = `all ${s.tileDuration}ms ${s.easing} ${c[s.direction](i)}ms`;
-          l.transform({
-            transition: p,
-            opacity: "0",
-            transform: `rotateZ(${a(i)}deg)`
-          });
-        });
-      },
-      totalDuration: n
-    }), (l, i) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(Dt), {
-      ref_key: "$vortex",
-      ref: o,
-      size: l.size,
-      circles: s.circles,
-      rsc: l.from
-    }, null, 8, ["size", "circles", "rsc"]));
-  }
-}), cs = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Camera",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 900,
-      backgroundColor: "#111",
-      easing: "cubic-bezier(0.385, 0, 0.795, 0.560)"
-    });
-    L(n, e.options);
-    const c = {
-      alignSelf: "center",
-      flex: "none"
-    }, a = ut(
-      e.size.toValue()
-    ), u = new T({ width: a, height: a }), l = {
-      boxSizing: "border-box",
-      position: "absolute",
-      display: "flex",
-      justifyContent: "center",
-      overflow: "hidden",
-      borderRadius: "50%",
-      border: "0 solid " + n.backgroundColor,
-      top: (e.size.height.value - a) / 2 + "px",
-      left: (e.size.width.value - a) / 2 + "px"
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform({
-          transition: `all ${n.totalDuration / 2 - 50}ms ${n.easing} 0ms`,
-          borderWidth: a / 2 + "px"
-        }), setTimeout(
-          () => {
-            s.value.hide(), o.value.transform({
-              transition: `all ${n.totalDuration / 2 - 50}ms ${n.easing} 0ms`,
-              borderWidth: 0
+
+var Carousel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'Carousel',
+    props: carouselProps,
+    setup(props, { slots, emit, expose }) {
+        var _a;
+        const root = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
+        const slides = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+        const slideWidth = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+        const slidesCount = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+        // current config
+        const config = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign({}, defaultConfigs));
+        // default carousel configs
+        let __defaultConfig = Object.assign({}, defaultConfigs);
+        // breakpoints configs
+        let breakpoints;
+        // slides
+        const currentSlideIndex = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)((_a = props.modelValue) !== null && _a !== void 0 ? _a : 0);
+        const prevSlideIndex = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+        const middleSlideIndex = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+        const maxSlideIndex = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+        const minSlideIndex = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
+        let autoplayTimer;
+        let transitionTimer;
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('config', config);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('slidesCount', slidesCount);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('currentSlide', currentSlideIndex);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('maxSlide', maxSlideIndex);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('minSlide', minSlideIndex);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('slideWidth', slideWidth);
+        /**
+         * Configs
+         */
+        function initDefaultConfigs() {
+            breakpoints = Object.assign({}, props.breakpoints);
+            __defaultConfig = Object.assign(Object.assign(Object.assign({}, __defaultConfig), props), { i18n: Object.assign(Object.assign({}, __defaultConfig.i18n), props.i18n), breakpoints: undefined });
+            bindConfigs(__defaultConfig);
+        }
+        function updateBreakpointsConfigs() {
+            if (!breakpoints || !Object.keys(breakpoints).length)
+                return;
+            const breakpointsArray = Object.keys(breakpoints)
+                .map((key) => Number(key))
+                .sort((a, b) => +b - +a);
+            let newConfig = Object.assign({}, __defaultConfig);
+            breakpointsArray.some((breakpoint) => {
+                const isMatched = window.matchMedia(`(min-width: ${breakpoint}px)`).matches;
+                if (isMatched) {
+                    newConfig = Object.assign(Object.assign({}, newConfig), breakpoints[breakpoint]);
+                }
+                return isMatched;
             });
-          },
-          n.totalDuration / 2 + 50
-        );
-      },
-      totalDuration: n.totalDuration
-    }), (p, m) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(ht), {
-      ref_key: "$wrapper",
-      ref: o,
-      size: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(u),
-      css: l
-    }, {
-      default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(() => [
-        ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(p.from.transition.component), {
-          ref_key: "$from",
-          ref: s,
-          size: p.size,
-          rsc: p.from,
-          css: c
-        }, null, 8, ["size", "rsc"]))
-      ]),
-      _: 1
-    }, 8, ["size"]));
-  }
-}), us = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Cube",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1400,
-      easing: "ease-out"
-    });
-    L(s, e.options), Object.assign(e.maskStyle, {
-      perspective: "1600px",
-      overflow: "visible"
-    });
-    const n = {
-      front: e.from,
-      left: e.to,
-      right: e.to
-    }, c = {
-      transition: `all ${s.totalDuration}ms ${s.easing}`
-    }, a = {
-      [z.prev]: G.right,
-      [z.next]: G.left
-    }[s.direction];
-    return t({
-      onPlay: () => {
-        e.displayComponent !== null && e.displayComponent.hide(), o.value.turn(a);
-      },
-      totalDuration: s.totalDuration
-    }), (l, i) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(pt), {
-      ref_key: "$cube",
-      ref: o,
-      rscs: n,
-      size: l.size,
-      depth: l.size.width.value,
-      css: c
-    }, null, 8, ["size", "depth"]));
-  }
-}), ps = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Book",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), n = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1200,
-      easing: "ease-out"
-    });
-    L(n, e.options);
-    const c = new T({
-      width: Math.ceil(e.size.width.value / 2),
-      height: e.size.height.value
-    }), a = {
-      perspective: "1600px",
-      width: "100%",
-      height: "100%"
-    }, u = new K({
-      top: 0,
-      left: 0
-    }), l = {
-      position: "absolute",
-      top: 0,
-      left: 0
-    }, i = {
-      rscs: {
-        front: e.from,
-        back: e.to
-      },
-      offsets: {
-        front: new K({
-          top: 0,
-          left: 0
-        }),
-        back: new K({
-          top: 0,
-          left: 0
-        })
-      },
-      origin: "",
-      css: {
-        position: "absolute",
-        top: 0,
-        left: 0
-      }
-    }, p = Math.ceil(e.size.width.value / 2), m = p.toString() + "px";
-    e.maskStyle.overflow = "visible", {
-      prev: () => {
-        u.left.value = p, l.left = m, i.offsets.back.left.value = p, i.origin = "right center", i.css = {
-          ...i.css
+            bindConfigs(newConfig);
+        }
+        function bindConfigs(newConfig) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            Object.entries(newConfig).forEach(([key, val]) => (config[key] = val));
+        }
+        const handleWindowResize = debounce(() => {
+            updateBreakpointsConfigs();
+            updateSlidesData();
+            updateSlideWidth();
+        }, 16);
+        /**
+         * Setup functions
+         */
+        function updateSlideWidth() {
+            if (!root.value)
+                return;
+            const rect = root.value.getBoundingClientRect();
+            slideWidth.value = rect.width / config.itemsToShow;
+        }
+        function updateSlidesData() {
+            if (slidesCount.value <= 0)
+                return;
+            middleSlideIndex.value = Math.ceil((slidesCount.value - 1) / 2);
+            maxSlideIndex.value = getMaxSlideIndex({ config, slidesCount: slidesCount.value });
+            minSlideIndex.value = getMinSlideIndex({ config, slidesCount: slidesCount.value });
+            if (!config.wrapAround) {
+                currentSlideIndex.value = getNumberInRange({
+                    val: currentSlideIndex.value,
+                    max: maxSlideIndex.value,
+                    min: minSlideIndex.value,
+                });
+            }
+        }
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(() => {
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)(() => updateSlideWidth());
+            // Overcome some edge cases
+            setTimeout(() => updateSlideWidth(), 1000);
+            updateBreakpointsConfigs();
+            initAutoplay();
+            window.addEventListener('resize', handleWindowResize, { passive: true });
+            emit('init');
+        });
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.onUnmounted)(() => {
+            if (transitionTimer) {
+                clearTimeout(transitionTimer);
+            }
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+            }
+            window.removeEventListener('resize', handleWindowResize, {
+                passive: true,
+            });
+        });
+        /**
+         * Carousel Event listeners
+         */
+        let isTouch = false;
+        const startPosition = { x: 0, y: 0 };
+        const endPosition = { x: 0, y: 0 };
+        const dragged = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({ x: 0, y: 0 });
+        const isHover = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        const isDragging = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        const handleMouseEnter = () => {
+            isHover.value = true;
         };
-      },
-      next: () => {
-        i.offsets.front.left.value = p, i.origin = "left center", i.css = {
-          ...i.css,
-          left: m
+        const handleMouseLeave = () => {
+            isHover.value = false;
         };
-      }
-    }[n.direction]();
-    const _ = {
-      [z.prev]: "180",
-      [z.next]: "-180"
-    }[n.direction];
-    return t({
-      onPlay: () => {
-        s.value.transform({
-          transition: `transform ${n.totalDuration}ms ${n.easing}`,
-          transform: `rotateY(${_}deg)`
+        function handleDragStart(event) {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName)) {
+                return;
+            }
+            isTouch = event.type === 'touchstart';
+            if (!isTouch) {
+                event.preventDefault();
+            }
+            if ((!isTouch && event.button !== 0) || isSliding.value) {
+                return;
+            }
+            startPosition.x = isTouch ? event.touches[0].clientX : event.clientX;
+            startPosition.y = isTouch ? event.touches[0].clientY : event.clientY;
+            document.addEventListener(isTouch ? 'touchmove' : 'mousemove', handleDragging, true);
+            document.addEventListener(isTouch ? 'touchend' : 'mouseup', handleDragEnd, true);
+        }
+        const handleDragging = throttle((event) => {
+            isDragging.value = true;
+            endPosition.x = isTouch ? event.touches[0].clientX : event.clientX;
+            endPosition.y = isTouch ? event.touches[0].clientY : event.clientY;
+            const deltaX = endPosition.x - startPosition.x;
+            const deltaY = endPosition.y - startPosition.y;
+            dragged.y = deltaY;
+            dragged.x = deltaX;
+        }, config.throttle);
+        function handleDragEnd() {
+            const direction = config.dir === 'rtl' ? -1 : 1;
+            const tolerance = Math.sign(dragged.x) * 0.4;
+            const draggedSlides = Math.round(dragged.x / slideWidth.value + tolerance) * direction;
+            // Prevent clicking if there is clicked slides
+            if (draggedSlides && !isTouch) {
+                const captureClick = (e) => {
+                    window.removeEventListener('click', captureClick, true);
+                };
+                window.addEventListener('click', captureClick, true);
+            }
+            slideTo(currentSlideIndex.value - draggedSlides);
+            dragged.x = 0;
+            dragged.y = 0;
+            isDragging.value = false;
+            document.removeEventListener(isTouch ? 'touchmove' : 'mousemove', handleDragging, true);
+            document.removeEventListener(isTouch ? 'touchend' : 'mouseup', handleDragEnd, true);
+        }
+        /**
+         * Autoplay
+         */
+        function initAutoplay() {
+            if (!config.autoplay || config.autoplay <= 0) {
+                return;
+            }
+            autoplayTimer = setInterval(() => {
+                if (config.pauseAutoplayOnHover && isHover.value) {
+                    return;
+                }
+                next();
+            }, config.autoplay);
+        }
+        function resetAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+            initAutoplay();
+        }
+        /**
+         * Navigation function
+         */
+        const isSliding = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+        function slideTo(slideIndex) {
+            const currentVal = config.wrapAround
+                ? slideIndex
+                : getNumberInRange({
+                    val: slideIndex,
+                    max: maxSlideIndex.value,
+                    min: minSlideIndex.value,
+                });
+            if (currentSlideIndex.value === currentVal || isSliding.value) {
+                return;
+            }
+            emit('slide-start', {
+                slidingToIndex: slideIndex,
+                currentSlideIndex: currentSlideIndex.value,
+                prevSlideIndex: prevSlideIndex.value,
+                slidesCount: slidesCount.value,
+            });
+            isSliding.value = true;
+            prevSlideIndex.value = currentSlideIndex.value;
+            currentSlideIndex.value = currentVal;
+            transitionTimer = setTimeout(() => {
+                if (config.wrapAround) {
+                    const mappedNumber = mapNumberToRange({
+                        val: currentVal,
+                        max: maxSlideIndex.value,
+                        min: 0,
+                    });
+                    if (mappedNumber !== currentSlideIndex.value) {
+                        currentSlideIndex.value = mappedNumber;
+                        emit('loop', {
+                            currentSlideIndex: currentSlideIndex.value,
+                            slidingToIndex: slideIndex,
+                        });
+                    }
+                }
+                emit('update:modelValue', currentSlideIndex.value);
+                emit('slide-end', {
+                    currentSlideIndex: currentSlideIndex.value,
+                    prevSlideIndex: prevSlideIndex.value,
+                    slidesCount: slidesCount.value,
+                });
+                isSliding.value = false;
+                resetAutoplay();
+            }, config.transition);
+        }
+        function next() {
+            slideTo(currentSlideIndex.value + config.itemsToScroll);
+        }
+        function prev() {
+            slideTo(currentSlideIndex.value - config.itemsToScroll);
+        }
+        const nav = { slideTo, next, prev };
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('nav', nav);
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('isSliding', isSliding);
+        /**
+         * Track style
+         */
+        const slidesToScroll = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => getSlidesToScroll({
+            config,
+            currentSlide: currentSlideIndex.value,
+            slidesCount: slidesCount.value,
+        }));
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.provide)('slidesToScroll', slidesToScroll);
+        const trackStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+            const direction = config.dir === 'rtl' ? -1 : 1;
+            const xScroll = slidesToScroll.value * slideWidth.value * direction;
+            return {
+                transform: `translateX(${dragged.x - xScroll}px)`,
+                transition: `${isSliding.value ? config.transition : 0}ms`,
+                margin: config.wrapAround ? `0 -${slidesCount.value * slideWidth.value}px` : '',
+                width: `100%`,
+            };
         });
-      },
-      totalDuration: n.totalDuration
-    }), (x, E) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", { style: a }, [
-      ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(x.from.transition.component), {
-        ref_key: "$from",
-        ref: o,
-        rsc: x.from,
-        size: x.size,
-        "view-size": (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(c),
-        offset: (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(u),
-        css: l
-      }, null, 8, ["rsc", "size", "view-size", "offset"])),
-      (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(pt), {
-        ref_key: "$cube",
-        ref: s,
-        rscs: i.rscs,
-        size: x.size,
-        "view-size": (0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(c),
-        offsets: i.offsets,
-        origin: i.origin,
-        css: i.css
-      }, null, 8, ["rscs", "size", "view-size", "offsets", "origin", "css"])
-    ]));
-  }
-}), hs = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Fall",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      totalDuration: 1600,
-      easing: "ease-in"
-    });
-    L(s, e.options), Object.assign(e.maskStyle, {
-      perspective: "1600px",
-      overflow: "visible"
-    });
-    const n = {
-      transformOrigin: "center bottom"
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform({
-          transition: `transform ${s.totalDuration}ms ${s.easing}`,
-          transform: "rotateX(-83.6deg)"
+        function restartCarousel() {
+            initDefaultConfigs();
+            updateBreakpointsConfigs();
+            updateSlidesData();
+            updateSlideWidth();
+            resetAutoplay();
+        }
+        // Update the carousel on props change
+        Object.keys(carouselProps).forEach((prop) => {
+            if (['modelValue'].includes(prop))
+                return;
+            (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(() => props[prop], restartCarousel);
         });
-      },
-      totalDuration: s.totalDuration
-    }), (a, u) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent)(a.from.transition.component), {
-      ref_key: "$from",
-      ref: o,
-      rsc: a.from,
-      size: a.size,
-      style: n
-    }, null, 8, ["rsc", "size"]));
-  }
-}), ds = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Wave",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 1,
-      cols: 8,
-      tileDuration: 900,
-      tileDelay: 110,
-      sideColor: "#333",
-      easing: "cubic-bezier(0.3, -0.3, 0.735, 0.285)"
-    });
-    L(s, e.options), e.maskStyle.overflow = "visible";
-    const n = {
-      front: e.from,
-      top: e.to
-    }, c = {
-      left: s.sideColor,
-      right: s.sideColor
-    }, a = {
-      perspective: "1200px"
-    }, u = s.tileDelay * s.cols + s.tileDuration, l = {
-      [z.prev]: (p) => (s.cols - p - 1) * s.tileDelay,
-      [z.next]: (p) => p * s.tileDelay
-    };
-    return t({
-      onPlay: () => {
-        e.displayComponent && e.displayComponent.hide(), o.value.transform(
-          (p, m) => {
-            const y = `all ${s.tileDuration}ms ${s.easing} ${l[s.direction](m)}ms`;
-            p.setCss({
-              transition: y
-            }), p.turn(G.bottom);
-          }
-        );
-      },
-      totalDuration: u
-    }), (p, m) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: p.size,
-      rscs: n,
-      colors: c,
-      depth: p.size.height.value,
-      css: a
-    }, null, 8, ["rows", "cols", "size", "depth"]));
-  }
-}), fs = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Blinds3D",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 1,
-      cols: 6,
-      tileDuration: 800,
-      tileDelay: 150,
-      easing: "ease-out"
-    });
-    L(s, e.options);
-    const n = {
-      perspective: "800px"
-    }, c = {
-      front: e.from,
-      back: e.to
-    }, a = s.tileDelay * s.cols + s.tileDuration;
-    e.maskStyle.overflow = "visible";
-    const u = {
-      prev: (p) => (s.cols - p - 1) * s.tileDelay,
-      next: (p) => p * s.tileDelay
-    }, l = {
-      prev: G.backl,
-      next: G.backr
-    }[s.direction];
-    return t({
-      onPlay: () => {
-        e.displayComponent && e.displayComponent.hide(), o.value.transform(
-          (p, m) => {
-            const y = `all ${s.tileDuration}ms ${s.easing} ${u[s.direction](m)}ms`;
-            p.setCss({
-              transition: y
-            }), p.turn(l);
-          }
-        );
-      },
-      totalDuration: a
-    }), (p, m) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: p.size,
-      rscs: c,
-      css: n
-    }, null, 8, ["rows", "cols", "size"]));
-  }
-}), ms = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Round1",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    var m;
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 0,
-      cols: 8,
-      tileDuration: 800,
-      tileDelay: 150,
-      easing: "ease-out"
-    });
-    L(s, e.options);
-    const n = {
-      front: e.from,
-      back: e.to
-    }, c = {
-      perspective: "800px"
-    };
-    if (e.maskStyle.overflow = "visible", !((m = e.options) != null && m.rows)) {
-      const y = e.size.width.value / s.cols;
-      s.rows = Math.floor(e.size.height.value / y);
-    }
-    const a = s.rows > s.cols ? s.rows : s.cols, u = s.tileDelay * a * 2, l = (y) => {
-      const _ = o.value.getRowNumber(y, s.cols);
-      let x = o.value.getColNumber(y, s.cols) + _;
-      return s.direction === z.prev && (x = s.rows + s.cols - x - 1), x * s.tileDelay;
-    }, i = {
-      [z.prev]: G.backl,
-      [z.next]: G.backr
-    }[s.direction];
-    return t({
-      onPlay: () => {
-        e.displayComponent && e.displayComponent.hide(), o.value.transform(
-          (y, _) => {
-            const v = `all ${s.tileDuration}ms ${s.easing} ${l(_)}ms`;
-            y.setCss({
-              transition: v
-            }), y.turn(i);
-          }
-        );
-      },
-      totalDuration: u
-    }), (y, _) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: y.size,
-      rscs: n,
-      css: c
-    }, null, 8, ["rows", "cols", "size"]));
-  }
-}), ys = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Round2",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    var i;
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 0,
-      cols: 9,
-      tileDuration: 800,
-      tileDelay: 100,
-      rotateX: -540,
-      easing: "linear"
-    });
-    L(s, e.options), e.maskStyle.overflow = "visible";
-    const n = {
-      perspective: "1200px"
-    }, c = {
-      backfaceVisibility: "hidden"
-    };
-    if (!((i = e.options) != null && i.rows)) {
-      const p = e.size.width.value / s.cols;
-      s.rows = Math.floor(e.size.height.value / p);
-    }
-    const a = (s.cols / 2 + s.rows) * (s.tileDelay * 2), u = (p) => {
-      const m = o.value.getRowNumber(p, s.cols), y = o.value.getColNumber(p, s.cols);
-      let _, v;
-      return s.direction === z.prev ? (_ = Math.abs(s.rows / 2 - 0.5 - m), v = Math.abs(s.cols - y)) : (_ = Math.abs(s.rows / 2 - 0.5 - m), v = Math.abs(y)), (_ + v - 1) * s.tileDelay;
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform((p, m) => {
-          const y = `all ${s.tileDuration}ms ${s.easing} ${u(m)}ms`;
-          p.transform({
-            transition: y,
-            opacity: "0",
-            transform: `rotateY(${s.rotateX.toString()}deg)`
-          });
+        // Handle changing v-model value
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(() => props['modelValue'], (val) => {
+            if (val === currentSlideIndex.value) {
+                return;
+            }
+            slideTo(Number(val));
         });
-      },
-      totalDuration: a
-    }), (p, m) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: p.size,
-      depth: 0,
-      rsc: p.from,
-      css: n,
-      "tile-css": c
-    }, null, 8, ["rows", "cols", "size", "rsc"]));
-  }
-}), gs = /* @__PURE__ */ (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  __name: "Explode",
-  props: {
-    options: {},
-    size: {},
-    from: {},
-    to: {},
-    maskStyle: {},
-    displayComponent: {}
-  },
-  setup(r, { expose: t }) {
-    var l;
-    const e = r, o = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null), s = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-      rows: 9,
-      cols: 9,
-      tileDuration: 300,
-      tileDelay: 100,
-      easing: "linear"
-    });
-    L(s, e.options);
-    const n = {
-      overflow: "visible"
-    };
-    if (e.maskStyle.overflow = "visible", !((l = e.options) != null && l.rows)) {
-      const i = e.size.width.value / s.cols;
-      s.rows = Math.floor(e.size.height.value / i);
-    }
-    const c = (s.cols / 2 + s.rows / 2) * (s.tileDelay * 2), a = (i) => {
-      const p = o.value.getRowNumber(i, s.cols), m = o.value.getColNumber(i, s.cols), y = Math.abs(s.rows / 2 - 0.5 - p), _ = Math.abs(s.cols / 2 - 0.5 - m);
-      return (y + _ - 1) * s.tileDelay;
-    };
-    return t({
-      onPlay: () => {
-        o.value.transform((i, p) => {
-          const m = `all ${s.tileDuration}ms ${s.easing} ${a(p)}ms`;
-          i.transform({
-            transition: m,
-            borderRadius: "100%",
-            opacity: "0",
-            transform: "scale(2)"
-          });
+        // Handel when slides added/removed
+        (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(slidesCount, updateSlidesData);
+        // Init carousel
+        emit('before-init');
+        initDefaultConfigs();
+        const data = {
+            config,
+            slidesCount,
+            slideWidth,
+            next,
+            prev,
+            slideTo,
+            currentSlide: currentSlideIndex,
+            maxSlide: maxSlideIndex,
+            minSlide: minSlideIndex,
+            middleSlide: middleSlideIndex,
+        };
+        expose({
+            updateBreakpointsConfigs,
+            updateSlidesData,
+            updateSlideWidth,
+            initDefaultConfigs,
+            restartCarousel,
+            slideTo,
+            next,
+            prev,
+            nav,
+            data,
         });
-      },
-      totalDuration: c
-    }), (i, p) => ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)((0,vue__WEBPACK_IMPORTED_MODULE_0__.unref)(X), {
-      ref_key: "$grid",
-      ref: o,
-      rows: s.rows,
-      cols: s.cols,
-      size: i.size,
-      rsc: i.from,
-      css: n
-    }, null, 8, ["rows", "cols", "size", "rsc"]));
-  }
+        const slotSlides = slots.default || slots.slides;
+        const slotAddons = slots.addons;
+        const slotsProps = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(data);
+        return () => {
+            const slidesElements = getSlidesVNodes(slotSlides === null || slotSlides === void 0 ? void 0 : slotSlides(slotsProps));
+            const addonsElements = (slotAddons === null || slotAddons === void 0 ? void 0 : slotAddons(slotsProps)) || [];
+            slidesElements.forEach((el, index) => (el.props.index = index));
+            let output = slidesElements;
+            if (config.wrapAround) {
+                const slidesBefore = slidesElements.map((el, index) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.cloneVNode)(el, {
+                    index: -slidesElements.length + index,
+                    isClone: true,
+                    key: `clone-before-${index}`,
+                }));
+                const slidesAfter = slidesElements.map((el, index) => (0,vue__WEBPACK_IMPORTED_MODULE_0__.cloneVNode)(el, {
+                    index: slidesElements.length + index,
+                    isClone: true,
+                    key: `clone-after-${index}`,
+                }));
+                output = [...slidesBefore, ...slidesElements, ...slidesAfter];
+            }
+            slides.value = slidesElements;
+            slidesCount.value = Math.max(slidesElements.length, 1);
+            const trackEl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('ol', {
+                class: 'carousel__track',
+                style: trackStyle.value,
+                onMousedownCapture: config.mouseDrag ? handleDragStart : null,
+                onTouchstartPassiveCapture: config.touchDrag ? handleDragStart : null,
+            }, output);
+            const viewPortEl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('div', { class: 'carousel__viewport' }, trackEl);
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('section', {
+                ref: root,
+                class: {
+                    carousel: true,
+                    'is-sliding': isSliding.value,
+                    'is-dragging': isDragging.value,
+                    'is-hover': isHover.value,
+                    'carousel--rtl': config.dir === 'rtl',
+                },
+                dir: config.dir,
+                'aria-label': config.i18n['ariaGallery'],
+                tabindex: '0',
+                onMouseenter: handleMouseEnter,
+                onMouseleave: handleMouseLeave,
+            }, [viewPortEl, addonsElements, (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(ARIAComponent)]);
+        };
+    },
 });
+
+var IconName;
+(function (IconName) {
+    IconName["arrowUp"] = "arrowUp";
+    IconName["arrowDown"] = "arrowDown";
+    IconName["arrowRight"] = "arrowRight";
+    IconName["arrowLeft"] = "arrowLeft";
+})(IconName || (IconName = {}));
+const icons = {
+    arrowUp: 'M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z',
+    arrowDown: 'M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z',
+    arrowRight: 'M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z',
+    arrowLeft: 'M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z',
+};
+
+function isIconName(candidate) {
+    return candidate in IconName;
+}
+const Icon = (props) => {
+    const config = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('config', (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign({}, defaultConfigs)));
+    const iconName = String(props.name);
+    const iconI18n = `icon${iconName.charAt(0).toUpperCase() + iconName.slice(1)}`;
+    if (!iconName || typeof iconName !== 'string' || !isIconName(iconName)) {
+        return;
+    }
+    const path = icons[iconName];
+    const pathEl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('path', { d: path });
+    const iconTitle = config.i18n[iconI18n] || props.title || iconName;
+    const titleEl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('title', iconTitle);
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('svg', {
+        class: 'carousel__icon',
+        viewBox: '0 0 24 24',
+        role: 'img',
+        'aria-label': iconTitle,
+    }, [titleEl, pathEl]);
+};
+Icon.props = { name: String, title: String };
+
+const Navigation = (props, { slots, attrs }) => {
+    const { next: slotNext, prev: slotPrev } = slots || {};
+    const config = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('config', (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign({}, defaultConfigs)));
+    const maxSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('maxSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1));
+    const minSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('minSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1));
+    const currentSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('currentSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1));
+    const nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('nav', {});
+    const { dir, wrapAround, i18n } = config;
+    const isRTL = dir === 'rtl';
+    const prevButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('button', {
+        type: 'button',
+        class: [
+            'carousel__prev',
+            !wrapAround && currentSlide.value <= minSlide.value && 'carousel__prev--disabled',
+            attrs === null || attrs === void 0 ? void 0 : attrs.class,
+        ],
+        'aria-label': i18n['ariaPreviousSlide'],
+        onClick: nav.prev,
+    }, (slotPrev === null || slotPrev === void 0 ? void 0 : slotPrev()) || (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(Icon, { name: isRTL ? 'arrowRight' : 'arrowLeft' }));
+    const nextButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('button', {
+        type: 'button',
+        class: [
+            'carousel__next',
+            !wrapAround && currentSlide.value >= maxSlide.value && 'carousel__next--disabled',
+            attrs === null || attrs === void 0 ? void 0 : attrs.class,
+        ],
+        'aria-label': i18n['ariaNextSlide'],
+        onClick: nav.next,
+    }, (slotNext === null || slotNext === void 0 ? void 0 : slotNext()) || (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(Icon, { name: isRTL ? 'arrowLeft' : 'arrowRight' }));
+    return [prevButton, nextButton];
+};
+
+const Pagination = () => {
+    const config = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('config', (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign({}, defaultConfigs)));
+    const maxSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('maxSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1));
+    const minSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('minSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1));
+    const currentSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('currentSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(1));
+    const nav = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('nav', {});
+    const isActive = (slide) => mapNumberToRange({
+        val: currentSlide.value,
+        max: maxSlide.value,
+        min: 0,
+    }) === slide;
+    const children = [];
+    for (let slide = minSlide.value; slide < maxSlide.value + 1; slide++) {
+        const button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('button', {
+            type: 'button',
+            class: {
+                'carousel__pagination-button': true,
+                'carousel__pagination-button--active': isActive(slide),
+            },
+            'aria-label': i18nFormatter(config.i18n['ariaNavigateToSlide'], {
+                slideNumber: slide + 1,
+            }),
+            onClick: () => nav.slideTo(slide),
+        });
+        const item = (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('li', { class: 'carousel__pagination-item', key: slide }, button);
+        children.push(item);
+    }
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('ol', { class: 'carousel__pagination' }, children);
+};
+
+var Slide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+    name: 'CarouselSlide',
+    props: {
+        index: {
+            type: Number,
+            default: 1,
+        },
+        isClone: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    setup(props, { slots }) {
+        const config = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('config', (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(Object.assign({}, defaultConfigs)));
+        const currentSlide = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('currentSlide', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0));
+        const slidesToScroll = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('slidesToScroll', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0));
+        const isSliding = (0,vue__WEBPACK_IMPORTED_MODULE_0__.inject)('isSliding', (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false));
+        const isActive = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.index === currentSlide.value);
+        const isPrev = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.index === currentSlide.value - 1);
+        const isNext = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.index === currentSlide.value + 1);
+        const isVisible = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+            const min = Math.floor(slidesToScroll.value);
+            const max = Math.ceil(slidesToScroll.value + config.itemsToShow - 1);
+            return props.index >= min && props.index <= max;
+        });
+        return () => {
+            var _a;
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)('li', {
+                style: { width: `${100 / config.itemsToShow}%` },
+                class: {
+                    carousel__slide: true,
+                    'carousel__slide--clone': props.isClone,
+                    'carousel__slide--visible': isVisible.value,
+                    'carousel__slide--active': isActive.value,
+                    'carousel__slide--prev': isPrev.value,
+                    'carousel__slide--next': isNext.value,
+                    'carousel__slide--sliding': isSliding.value,
+                },
+                'aria-hidden': !isVisible.value,
+            }, (_a = slots.default) === null || _a === void 0 ? void 0 : _a.call(slots, {
+                isActive: isActive.value,
+                isClone: props.isClone,
+                isPrev: isPrev.value,
+                isNext: isNext.value,
+                isSliding: isSliding.value,
+                isVisible: isVisible.value
+            }));
+        };
+    },
+});
+
 
 
 
