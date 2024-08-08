@@ -51,7 +51,7 @@
     const imageUrl = (img) => {
         let url = `${process.env.MIX_API_URL}/images`
 
-        return `${url}/${img}`
+        return (img) ? `${url}/${img}` : ''
     }
 
     const setCurrentImage = (img) => {

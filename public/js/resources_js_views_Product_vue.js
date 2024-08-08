@@ -262,7 +262,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }();
     var imageUrl = function imageUrl(img) {
       var url = "".concat("http://localhost:8000", "/images");
-      return "".concat(url, "/").concat(img);
+      return img ? "".concat(url, "/").concat(img) : '';
     };
     var setCurrentImage = function setCurrentImage(img) {
       data.currentImage = img;
